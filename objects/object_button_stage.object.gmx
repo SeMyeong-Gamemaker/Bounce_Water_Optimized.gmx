@@ -61,7 +61,12 @@
           <argument>
             <kind>1</kind>
             <string>
-    room_goto( global.stage_room[global.world,stage] );
+    if( !button_move &amp;&amp; global.stage_unlock[global.world,stage] ) {
+    
+        global.stage = stage;
+        room_goto( global.stage_room[global.world,stage] );
+    
+    }
 </string>
           </argument>
         </arguments>
