@@ -43,6 +43,7 @@
     
     ball_water = 0;
     ball_pollution = 0;
+    ball_water_max = 100;
     
     // Drawing
     
@@ -245,7 +246,8 @@
             <string>/// Draw Ball
 
     draw_sprite_ext( sprite_index, 0, x, y, ball_scale_x, ball_scale_y, direction, c_white, 1 );
-    draw_text( mouse_x, mouse_y, device_mouse_raw_x( 0 ) );
+    draw_sprite_ext( sprite_index, 1, x, y, ball_scale_x, ball_scale_y, direction, c_white, ball_pollution / ball_water_max );
+    
 </string>
           </argument>
         </arguments>

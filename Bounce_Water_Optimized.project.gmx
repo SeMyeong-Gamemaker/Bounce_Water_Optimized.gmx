@@ -58,14 +58,19 @@
         <object>objects\object_button_stage</object>
       </objects>
       <objects name="Stage">
-        <object>objects\object_stage_setup</object>
+        <object>objects\object_setup</object>
+      </objects>
+      <objects name="Ingame">
+        <object>objects\object_ingame_surface</object>
       </objects>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_setup</room>
     <room>rooms\room_menu</room>
-    <room>rooms\room2</room>
+    <rooms name="World 0">
+      <room>rooms\room_test</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

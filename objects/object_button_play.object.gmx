@@ -124,7 +124,7 @@
     draw_set_valign( fa_middle );
     
     draw_set_colour( c_black );
-    draw_text( x, y, "Start" );
+    draw_text( x, y, "시작" );
 </string>
           </argument>
         </arguments>

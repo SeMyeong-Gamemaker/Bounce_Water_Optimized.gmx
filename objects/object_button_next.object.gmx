@@ -155,7 +155,7 @@
     draw_set_valign( fa_middle );
     
     draw_set_colour( c_black );
-    draw_text( x, y, "Next" );
+    draw_text( x, y, "다음 페이지" );
 </string>
           </argument>
         </arguments>

@@ -25,13 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// World Tutorial ( 0 )
+            <string>/// Stage Setup - World Tutorial ( 0 )
 
-    global.stage_room[0,0] = room2;
-    global.stage_room[0,1] = room2;
-    global.stage_room[0,2] = room2;
-    global.stage_room[0,3] = room2;
-    global.stage_room[0,50] = room2;
+    global.stage_room[0,1] = room_test;
+
 </string>
           </argument>
         </arguments>
@@ -52,7 +49,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// World 1 ( 1 )
+            <string>/// Stage Setup - World 1 ( 1 )
 </string>
           </argument>
         </arguments>
@@ -73,7 +70,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// World Custom ( 2 )
+            <string>/// Stage Setup - World Custom ( 2 )
 </string>
           </argument>
         </arguments>
@@ -94,10 +91,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Variable Setting
+            <string>/// Variable Setup - Worlds &amp; Stages
 
     global.world = 0; // Current World
-    global.fadein = false; // Stage transition
     
     for( var i = 0; i &lt; array_height_2d( global.stage_room ); i++ ) {
     
@@ -128,6 +124,53 @@
         
     }
     
+    
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Variable Setup - Other
+
+    global.fadein = false; // Stage transition
+    
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// room_goto( room_menu );
+
     room_goto( room_menu );
 </string>
           </argument>
