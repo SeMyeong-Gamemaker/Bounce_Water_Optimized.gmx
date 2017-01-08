@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1000</depth>
+  <depth>-100000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,11 +25,100 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Other
+            <string>/// Setting
+    
+    // FOR FPS TEST ONLY
+    /*
+    fpss = 10000;
+    fpss25 = 0;
+    fpss20 = 0;
+    fpss15 = 0;
+    fpsss = 0;
+    fpson = false;
+    alarm[0] = 120
+    */
+
+    fire = 0;
+    time = 0;
+    
+    global.stage_fire[global.world,global.stage[global.world]] = 0;
+    global.stage_fire_count[global.world,global.stage[global.world]] = instance_number( object_fire );
+    
+
+    
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Control object
 
     instance_create( 0, 0, object_ingame_background );
     instance_create( 0, 0, object_ingame_surface );
     instance_create( 0, 0, object_name );
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fpson = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fpson = true;
+fpss = 0;
+alarm[1] = room_speed * 30;
 </string>
           </argument>
         </arguments>
@@ -52,16 +141,87 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Time
+
+    time++;
+    
+    //FOR FPS TEST ONLY
+    /*
+    if( fpson ) {
+    
+        if( fps_real &gt; fpss ) { fpss = fps_real; }
+        if( fps_real &gt;= 2500 ) { fpss25++; }
+        if( fps_real &gt;= 2000 &amp;&amp; fps_real &lt; 2500 ) { fpss20++; }
+        if( fps_real &gt;= 1500 &amp;&amp; fps_real &lt; 2000 ) { fpss15++; }
+        if( fps_real &lt; 1500 ) { fpsss++; }
+    
+    }*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Exit
+
     var key_esc = keyboard_check_pressed( vk_escape );
     var key_back = keyboard_check_pressed( vk_backspace );
     
     if( key_esc || key_back ) {
-    
+        
         global.game_esc = true;
         room_goto( room_menu );
         
     }
+    
+    
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// FPS Test
+
+    // FOR FPS TEST ONLY
+    /*
+    draw_set_colour( c_black );
+    draw_text( 128, 64, "MAXFPS : " + string( fpss ) );
+    draw_text( 128, 128, "CURENT : " + string( fps_real ) );
+    draw_text( 128, 192, "&gt;=2500 : " + string( fpss25 ) );
+    draw_text( 128, 256, "2000 2499 : " + string( fpss20 ) );
+    draw_text( 128, 320, "1500 1999 : " + string( fpss15 ) );
+    draw_text( 128, 384, "&lt; 1500 : " + string( fpsss ) );*/
 </string>
           </argument>
         </arguments>

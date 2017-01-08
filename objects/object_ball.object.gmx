@@ -50,6 +50,9 @@
     ball_scale_x = 1;
     ball_scale_y = 1;
     
+    colour_water = make_colour_hsv( 133, 213, 150 );
+    colour_pollution = make_colour_hsv( 31, 48, 80 );
+    
     // Camera
     
     // Mobile Control
@@ -83,6 +86,8 @@
             <kind>1</kind>
             <string>
     instance_create( x, y, object_ingame_death );
+    
+    global.stage_death[global.world,global.stage[global.world]]++;
     
     repeat( 16 ) {
     
@@ -157,6 +162,11 @@
         ball_speed_v = 0;
         ball_action_jump( ball_speed_j, 0.75, 1.25 );
     
+    } else if( place_meeting( x, y + 1, object_pipe ) ) {
+    
+        ball_speed_v = 0;
+        ball_action_finish();
+    
     } else {  // Ball is in midair
     
         ball_action_gravity( 15, ball_gravity );
@@ -213,12 +223,14 @@
     // Horizontal Collision
     
     ball_action_collision_horizontal( object_block, true );
+    ball_action_collision_horizontal( object_pipe, true );
     
     x += ball_speed_h;
     
     // Vertical Collision
     
     ball_action_collision_vertical( object_block, true );
+    ball_action_collision_vertical( object_pipe, true );
     
     y += ball_speed_v;
 </string>
@@ -363,7 +375,14 @@
 
     draw_sprite_ext( sprite_index, 0, x, y, ball_scale_x, ball_scale_y, direction, c_white, 1 );
     draw_sprite_ext( sprite_index, 1, x, y, ball_scale_x, ball_scale_y, direction, c_white, ball_pollution / ball_water_max );
+
+    draw_sprite_ext( sprite_button_mask, 0, view_xview + ( view_wview / 2 ), view_yview + 32, 5 * ( ball_water + ball_pollution ) / ball_water_max, 1, -view_angle, colour_water, 1 );
+    draw_sprite_ext( sprite_button_mask, 0, view_xview + ( view_wview / 2 ), view_yview + 32, 5 * ball_pollution / ball_water_max, 1, -view_angle, colour_pollution, 1 );
     
+    draw_set_colour( c_white );
+    draw_text_transformed( view_xview + ( view_wview / 2 ), view_yview + 32, string( ball_water + ball_pollution ), 1, 1, -view_angle );
+
+
 </string>
           </argument>
         </arguments>

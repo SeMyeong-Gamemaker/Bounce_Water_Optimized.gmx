@@ -91,32 +91,36 @@
             <string>
     if( !button_move ) {
     
-        button_move = true;
-        button_point = x + room_width;
-        button_destroy = true;
-        
-        button_action_create_world( 128, 16, 1, -1 );
-        
-        with( object_button_prev ) {
+        if( room = room_menu ) {
         
             button_move = true;
             button_point = x + room_width;
             button_destroy = true;
-        
-        }
-        with( object_button_next ) {
-        
-            button_move = true;
-            button_point = x + room_width;
-            button_destroy = true;
-        
-        }
-        with( object_button_stage ) {
-        
-            button_move = true;
-            button_point = x + room_width;
-            button_destroy = true;
-        
+            
+            button_action_create_world( 128, 16, 1, -1 );
+            
+            with( object_button_prev ) {
+            
+                button_move = true;
+                button_point = x + room_width;
+                button_destroy = true;
+            
+            }
+            with( object_button_next ) {
+            
+                button_move = true;
+                button_point = x + room_width;
+                button_destroy = true;
+            
+            }
+            with( object_button_stage ) {
+            
+                button_move = true;
+                button_point = x + room_width;
+                button_destroy = true;
+            
+            }
+            
         }
     
     }

@@ -108,7 +108,7 @@
             global.stage_death_record[i,j] = -1; // Stage minimum death count
             
             global.stage_fire[i,j] = 0; // Stage fire extinguished
-            global.stage_fire_count = 0; // Number of stage fire
+            global.stage_fire_count[i,j] = 0; // Number of stage fire
             global.stage_fire_record[i,j] = -1; // Stage maximum fire extinguished
             
             global.stage_time[i,j] = 0; // Stage time taken

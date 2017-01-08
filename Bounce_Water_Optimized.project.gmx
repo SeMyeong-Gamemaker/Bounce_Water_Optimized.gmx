@@ -13,6 +13,7 @@
     </sprites>
     <sprites name="Block">
       <sprite>sprites\sprite_block_white</sprite>
+      <sprite>sprites\sprite_block_pipe</sprite>
       <sprite>sprites\sprite_block_water</sprite>
       <sprite>sprites\sprite_block_pollution</sprite>
       <sprite>sprites\sprite_block_water_mask</sprite>
@@ -40,6 +41,7 @@
     <script>scripts\ball_action_collision_vertical.gml</script>
     <script>scripts\button_action_create_world.gml</script>
     <script>scripts\button_action_create_stage.gml</script>
+    <script>scripts\ball_action_finish.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_18</font>
@@ -51,8 +53,10 @@
     </objects>
     <objects name="Block">
       <object>objects\object_block</object>
+      <object>objects\object_pipe</object>
       <object>objects\object_water</object>
       <object>objects\object_pollution</object>
+      <object>objects\object_fire</object>
     </objects>
     <objects name="System">
       <objects name="Button">
@@ -62,6 +66,7 @@
         <object>objects\object_button_prev</object>
         <object>objects\object_button_next</object>
         <object>objects\object_button_stage</object>
+        <object>objects\object_button_nextstage</object>
       </objects>
       <objects name="Stage">
         <object>objects\object_setup</object>
@@ -78,6 +83,7 @@
   <rooms name="rooms">
     <room>rooms\room_setup</room>
     <room>rooms\room_menu</room>
+    <room>rooms\room_finish</room>
     <rooms name="World 0">
       <room>rooms\room_test</room>
     </rooms>

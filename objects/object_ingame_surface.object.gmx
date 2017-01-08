@@ -32,6 +32,30 @@
     block_surface = noone;
     
     
+    
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Gui
+
+    
 </string>
           </argument>
         </arguments>
@@ -115,6 +139,7 @@
         surface_set_target( shadow_surface );
         
         with( object_block ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
+        with( object_pipe ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
         switch( global.world ) {
         
             case 0 : 
@@ -139,10 +164,13 @@
         surface_set_target( block_surface );
         
         with( object_block ) { draw_sprite( sprite_index, image_index, x, y ); }
+        with( object_pipe ) { draw_sprite( sprite_index, image_index, x, y ); }
         
         surface_reset_target();
     
     }
+    
+    with( object_fire ) { draw_sprite_ext( sprite_index, -1, x, y, 0.2 + 0.8 * fire_health / fire_health_max, 0.2 + 0.8 * fire_health / fire_health_max, 0, c_white, 1 ); }
 
 </string>
           </argument>
