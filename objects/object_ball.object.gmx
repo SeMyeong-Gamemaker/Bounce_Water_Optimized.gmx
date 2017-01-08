@@ -64,6 +64,44 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+    instance_create( x, y, object_ingame_death );
+    
+    repeat( 16 ) {
+    
+        with( instance_create( x + lengthdir_x( random( 24 ), random( 360 ) ), y + lengthdir_y( random( 24 ), random( 360 ) ), object_ball_drop ) ) {
+        
+            gravity = 0.25;
+            friction = 0.05;
+            image_alpha = 0.5;
+            pollution = other.ball_pollution / other.ball_water_max;
+            motion_add( random( 360 ), random_range( 3, 5 ) );
+        
+        }
+    
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -203,7 +241,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Stretch Effect
+            <string>/// Effect
 
     ball_scale_x = lerp( ball_scale_x, 1, 0.1 );
     ball_scale_y = lerp( ball_scale_y, 1, 0.1 );
@@ -219,6 +257,20 @@
         ball_scale_y = 0.75;
         
         ball_jump = false;
+        
+        repeat( 8 ) {
+    
+        with( instance_create( x + lengthdir_x( random( 24 ), random_range( 225, 315 ) ), y + lengthdir_y( random( 24 ), random_range( 225, 315 ) ), object_ball_drop ) ) {
+        
+            gravity = 0.25;
+            friction = 0.05;
+            image_alpha = 0.5;
+            pollution = other.ball_pollution / other.ball_water_max;
+            motion_add( random( 360 ), random_range( 3, 5 ) );
+        
+        }
+    
+    }
     
     }
 </string>
@@ -262,6 +314,29 @@
     } else { angle = 0; }
     
     view_angle[0] = angle * room_distance_x;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Death
+
+    if( y &gt;= room_height ) { instance_destroy(); }
 </string>
           </argument>
         </arguments>

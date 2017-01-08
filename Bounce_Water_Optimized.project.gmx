@@ -9,11 +9,13 @@
     <sprites name="Ball">
       <sprite>sprites\sprite_ball_64</sprite>
       <sprite>sprites\sprite_ball_48</sprite>
+      <sprite>sprites\sprite_ball_16</sprite>
     </sprites>
     <sprites name="Block">
       <sprite>sprites\sprite_block_white</sprite>
       <sprite>sprites\sprite_block_water</sprite>
       <sprite>sprites\sprite_block_pollution</sprite>
+      <sprite>sprites\sprite_block_water_mask</sprite>
       <sprite>sprites\sprite_block_fire</sprite>
     </sprites>
     <sprites name="System">
@@ -45,9 +47,12 @@
   <objects name="objects">
     <objects name="Ball">
       <object>objects\object_ball</object>
+      <object>objects\object_ball_drop</object>
     </objects>
     <objects name="Block">
       <object>objects\object_block</object>
+      <object>objects\object_water</object>
+      <object>objects\object_pollution</object>
     </objects>
     <objects name="System">
       <objects name="Button">
@@ -62,7 +67,10 @@
         <object>objects\object_setup</object>
       </objects>
       <objects name="Ingame">
-        <object>objects\object_ingame</object>
+        <object>objects\object_ingame_control</object>
+        <object>objects\object_ingame_background</object>
+        <object>objects\object_ingame_surface</object>
+        <object>objects\object_ingame_death</object>
         <object>objects\object_name</object>
       </objects>
     </objects>

@@ -149,6 +149,7 @@
             <string>/// Variable Setup - Other
 
     global.fadein = false; // Stage transition
+    global.game_esc = false; // Exit from stage
     
 </string>
           </argument>

@@ -10,7 +10,37 @@
   <persistent>0</persistent>
   <colour>13737050</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>if( global.game_esc == false ) {
+    
+        instance_create( 0, 0, object_button_play );
+    
+    } else {
+    
+        button_action_create_stage( 1 );
+        
+        with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 9, object_button_back ) ) {
+        
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = false;
+        
+        }
+        with( instance_create( room_width + 128, y, object_button_prev ) ) {
+        
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = false;
+        
+        }
+        with( instance_create( room_width * 2 - 128, y, object_button_next ) ) {
+        
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = false;
+        
+        }
+    
+    }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -50,9 +80,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
-  <instances>
-    <instance objName="object_button_play" x="32" y="32" name="inst_CAB8D7DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-  </instances>
+  <instances/>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
