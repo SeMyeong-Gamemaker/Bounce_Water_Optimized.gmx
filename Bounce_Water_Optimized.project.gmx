@@ -28,6 +28,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -61,7 +62,8 @@
         <object>objects\object_setup</object>
       </objects>
       <objects name="Ingame">
-        <object>objects\object_ingame_surface</object>
+        <object>objects\object_ingame</object>
+        <object>objects\object_name</object>
       </objects>
     </objects>
   </objects>

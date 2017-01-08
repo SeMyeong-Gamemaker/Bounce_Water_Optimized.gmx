@@ -225,6 +225,47 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Camera Movement
+
+    var room_width_2 = room_width / 2;
+    var room_height_2 = room_height / 2;
+    var room_distance_y = point_distance( 0, y, 0, room_height_2 ) / room_height_2;
+    var room_distance_x = point_distance( x, 0, room_width_2, 0 ) / room_width_2;
+    var angle = 0;
+    
+    if( x &lt; room_width_2 ) {
+    
+        if( y &lt; room_height_2 ) { angle = 5 * room_distance_y; }
+        else if( y &gt; room_height_2 ) { angle = -5 * room_distance_y; }
+    
+    } else if( x &gt; room_width_2 ) {
+    
+        if( y &lt; room_height_2 ) { angle = -5 * room_distance_y; }
+        else if( y &gt; room_height_2 ) { angle = 5 * room_distance_y; }
+        
+    } else { angle = 0; }
+    
+    view_angle[0] = angle * room_distance_x;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>

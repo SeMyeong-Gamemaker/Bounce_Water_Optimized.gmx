@@ -28,6 +28,7 @@
             <string>/// Stage Setup - World Tutorial ( 0 )
 
     global.stage_room[0,1] = room_test;
+    global.stage_name[0,1] = "테스트 스테이지";
 
 </string>
           </argument>

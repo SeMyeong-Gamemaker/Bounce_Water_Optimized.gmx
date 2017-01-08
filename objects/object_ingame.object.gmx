@@ -25,12 +25,70 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Background Setting
+
+    background = noone;
+    background_scale_x = room_width / 1280;
+    background_scale_y = room_height / 720;
+    background_distance = point_distance( room_width / 2, room_height / 2, 0, 0 );
+    background_direction = point_direction( room_width / 2, room_height / 2, 0, 0 );
+    switch( global.world ) {
+    
+        case 0 : 
+            
+            background = background1;
+            break;
+    
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Ingame block surface
 // using surface to optimize
 
     surface = noone; // this surface is used for drawing blocks and block shadows
     
     
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Other
+
+    instance_create( 0, 0, object_name );
 </string>
           </argument>
         </arguments>
@@ -111,7 +169,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw surface
+            <string>/// Draw Background
+
+    draw_background_ext( background, room_width / 2 + lengthdir_x( background_distance, background_direction -view_angle ) , room_height / 2 + lengthdir_y( background_distance, background_direction -view_angle ), background_scale_x, background_scale_y, -view_angle, c_white, 1 );
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw Surface
 
     if( surface_exists( surface ) ) {
     
@@ -129,6 +210,7 @@
         surface_reset_target();
     
     }
+
 </string>
           </argument>
         </arguments>
