@@ -132,15 +132,22 @@
     var device_1 = device_mouse_check_button( 1, mb_left );
     var device_left = false;
     var device_right = false;
+
+    if( device_0 ) {
     
-    if( device_0 || device_1 ) {
+        if( device_mouse_raw_x( 0 ) &lt; display_width / 2 ) { device_left = true; }
+        if( device_mouse_raw_x( 0 ) &gt;= display_width / 2 ) { device_right = true; }
+        
+    }
+    if( device_1 ) {
     
-        if( ( device_mouse_raw_x( 0 ) &lt; display_width / 2 ) || ( device_mouse_raw_x( 1 ) &lt; display_width / 2 ) ) { device_left = true; }
-        if( ( device_mouse_raw_x( 0 ) &gt;= display_width / 2 ) || ( device_mouse_raw_x( 1 ) &gt;= display_width / 2 ) ) { device_right = true; }
-        if( device_left &amp;&amp; device_right ) { device_left = false; device_right = false; }
-    
+        if( device_mouse_raw_x( 1 ) &lt; display_width / 2 ) { device_left = true; }
+        if( device_mouse_raw_x( 1 ) &gt;= display_width / 2 ) { device_right = true; }
+        
     }
     
+    if( device_left &amp;&amp; device_right ) { device_left = false; device_right = false; }
+
     // Keyboard Input
     // REMOVE IF NOT NEEDED
     

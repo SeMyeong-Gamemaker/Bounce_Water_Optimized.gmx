@@ -5,6 +5,7 @@
 - 저번 프로젝트에 있었던 버그 수정
 
 ## 효과
+1799 스텝(거의 30초)동안 기록한 FPS
 ![Alt text](/image/unoptimized.png)
 ![Alt text](/image/optimized.png)
 

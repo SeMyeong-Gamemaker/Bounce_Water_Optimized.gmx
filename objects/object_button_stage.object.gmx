@@ -33,7 +33,17 @@
         
             x = round( x );
             button_move = false;
-            if( button_destroy ) { instance_destroy(); }
+            if( button_destroy ) {
+            
+                if( !button_fade ) { instance_destroy(); } 
+                else {
+                
+                    global.stage[global.world] = stage;
+                    room_goto( global.stage_room[global.world,stage] );
+                
+                }
+            
+            }
         
         }
     
@@ -63,8 +73,44 @@
             <string>
     if( !button_move &amp;&amp; global.stage_unlock[global.world,stage] ) {
     
-        global.stage[global.world] = stage;
-        room_goto( global.stage_room[global.world,stage] );
+        button_move = true;
+        button_point = x - room_width;
+        button_destroy = true;
+        button_fade = true;
+        
+        with( object_button_back ) {
+            
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
+            
+        }
+        with( object_button_prev ) {
+            
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
+            
+        }
+        with( object_button_next ) {
+            
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
+            
+        }
+        with( object_button_stage ) {
+            
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
+            
+        }
+        
+        global.stage_completion[global.world,global.stage[global.world]] = 0;
+        global.stage_death[global.world,global.stage[global.world]] = 0;
+        global.stage_fire[global.world,global.stage[global.world]] = 0;
+        global.stage_time[global.world,global.stage[global.world]] = 0;
     
     }
 </string>
@@ -98,6 +144,18 @@
     
     draw_set_colour( c_black );
     draw_text( x, y, string( stage ) );
+    
+    if( fire ) { draw_sprite( sprite_record_fire_mini, 0, x - 32, y - 32 ); }
+    if( death ) { draw_sprite( sprite_record_death_mini, 0, x + 32, y - 32 ); }
+    
+    if( completion != 0 ) {
+    
+        draw_set_colour( c_dkgray );
+        draw_text( x, y + 32, string( round( completion * 100 ) ) + "%" );
+    
+    }
+    
+    
 </string>
           </argument>
         </arguments>
