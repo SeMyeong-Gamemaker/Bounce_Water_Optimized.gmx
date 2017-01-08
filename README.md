@@ -6,8 +6,8 @@
 
 ## 효과
 1799 스텝(거의 30초)동안 기록한 FPS
-![Alt text](/image/unoptimized.png)
-![Alt text](/image/optimized.png)
+![Alt text](/image/unoptimized1.png)
+![Alt text](/image/optimized1.png)
 
 ## 제작
 - 그래픽     : 윤채미 임희진

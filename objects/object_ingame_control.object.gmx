@@ -28,7 +28,7 @@
             <string>/// Setting
     
     // FOR FPS TEST ONLY
-    /*
+    
     fpss = 10000;
     fpss25 = 0;
     fpss20 = 0;
@@ -36,7 +36,7 @@
     fpsss = 0;
     fpson = false;
     alarm[0] = 120
-    */
+    
 
     fire = 0;
     time = 0;
@@ -146,7 +146,7 @@ alarm[1] = room_speed * 30;
     time++;
     
     //FOR FPS TEST ONLY
-    /*
+    
     if( fpson ) {
     
         if( fps_real &gt; fpss ) { fpss = fps_real; }
@@ -155,7 +155,7 @@ alarm[1] = room_speed * 30;
         if( fps_real &gt;= 1500 &amp;&amp; fps_real &lt; 2000 ) { fpss15++; }
         if( fps_real &lt; 1500 ) { fpsss++; }
     
-    }*/
+    }
 </string>
           </argument>
         </arguments>
@@ -214,14 +214,14 @@ alarm[1] = room_speed * 30;
             <string>/// FPS Test
 
     // FOR FPS TEST ONLY
-    /*
+    
     draw_set_colour( c_black );
     draw_text( 128, 64, "MAXFPS : " + string( fpss ) );
     draw_text( 128, 128, "CURENT : " + string( fps_real ) );
     draw_text( 128, 192, "&gt;=2500 : " + string( fpss25 ) );
     draw_text( 128, 256, "2000 2499 : " + string( fpss20 ) );
     draw_text( 128, 320, "1500 1999 : " + string( fpss15 ) );
-    draw_text( 128, 384, "&lt; 1500 : " + string( fpsss ) );*/
+    draw_text( 128, 384, "&lt; 1500 : " + string( fpsss ) );
 </string>
           </argument>
         </arguments>
