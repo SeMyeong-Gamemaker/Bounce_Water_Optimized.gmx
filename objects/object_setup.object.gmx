@@ -35,6 +35,12 @@
     
     global.stage_room[0,3] = room_0_3;
     global.stage_name[0,3] = "0-3";
+    
+    global.stage_room[0,4] = room_0_4;
+    global.stage_name[0,4] = "0-4";
+    
+    global.stage_room[0,5] = room_0_5;
+    global.stage_name[0,5] = "0-5";
 </string>
           </argument>
         </arguments>

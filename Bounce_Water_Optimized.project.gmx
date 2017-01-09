@@ -104,6 +104,8 @@
       <room>rooms\room_0_1</room>
       <room>rooms\room_0_2</room>
       <room>rooms\room_0_3</room>
+      <room>rooms\room_0_4</room>
+      <room>rooms\room_0_5</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>
