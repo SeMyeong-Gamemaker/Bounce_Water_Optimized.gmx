@@ -33,9 +33,84 @@
         
             x = round( x );
             button_move = false;
-            if( button_destroy ) { instance_destroy(); }
+            if( button_destroy ) {
+            
+                if( !button_fade ) { instance_destroy(); } 
+                else {
+                
+                    global.stage[global.world] = stage;
+                    room_goto( global.stage_room[global.world,stage] );
+                
+                }
+            
+            }
         
         }
+    
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+    if( !button_move &amp;&amp; global.stage_unlock[global.world,stage] ) {
+    
+        button_move = true;
+        button_point = x - room_width;
+        button_destroy = true;
+        button_fade = true;
+        
+        with( object_button_back ) {
+            
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
+            
+        }
+        with( object_button_prev ) {
+            
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
+            
+        }
+        with( object_button_next ) {
+            
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
+            
+        }
+        with( object_button_stage ) {
+            
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
+            
+        }
+        
+        global.stage_completion[global.world,global.stage[global.world]] = 0;
+        global.stage_death[global.world,global.stage[global.world]] = 0;
+        global.stage_fire[global.world,global.stage[global.world]] = 0;
+        global.stage_time[global.world,global.stage[global.world]] = 0;
     
     }
 </string>
@@ -69,6 +144,18 @@
     
     draw_set_colour( c_black );
     draw_text( x, y, string( stage ) );
+    
+    if( fire ) { draw_sprite( sprite_record_fire_mini, 0, x - 32, y - 32 ); }
+    if( death ) { draw_sprite( sprite_record_death_mini, 0, x + 32, y - 32 ); }
+    
+    if( completion != 0 ) {
+    
+        draw_set_colour( c_dkgray );
+        draw_text( x, y + 32, string( round( completion * 100 ) ) + "%" );
+    
+    }
+    
+    
 </string>
           </argument>
         </arguments>

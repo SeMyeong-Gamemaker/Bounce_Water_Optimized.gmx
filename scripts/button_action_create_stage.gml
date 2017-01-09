@@ -11,8 +11,13 @@
         with( instance_create( room_width * ( button_direction ) + ( room_width / 8 * ( 2 + ( i - 1 ) mod 5 ) ), room_height / 10 * ( 3 + ( ( ( i - 1 ) mod 15 ) div 5 ) * 2 ), object_button_stage ) ) {
             
             stage = other.i;
+            button_fade = false;
             button_move = true;
             button_destroy = false;
+            
+            if( global.stage_death_record[global.world,stage] == 0 ) { death = true; } else { death = false; }
+            if( global.stage_fire_record[global.world,stage] == global.stage_fire_count[global.world,stage] ) { fire = true; } else { fire = false; }
+            if( global.stage_completion_record[global.world,stage] > 0 ) { completion = global.stage_completion_record[global.world,stage]; } else { completion = 0; }
             
             if( other.button_direction == 1 ) {
             

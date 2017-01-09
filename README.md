@@ -4,6 +4,11 @@
 - 모바일에서 높은 프레임으로 돌아갈수 있도록 제작
 - 저번 프로젝트에 있었던 버그 수정
 
+## 효과
+1799 스텝(거의 30초)동안 기록한 FPS
+![Alt text](/image/unoptimized1.png)
+![Alt text](/image/optimized1.png)
+
 ## 제작
 - 그래픽     : 윤채미 임희진
 - 프로그래밍 : 이민용

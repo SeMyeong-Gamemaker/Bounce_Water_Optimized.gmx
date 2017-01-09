@@ -10,36 +10,27 @@
   <persistent>0</persistent>
   <colour>13737050</colour>
   <showcolour>-1</showcolour>
-  <code>if( global.game_esc == false ) {
+  <code>with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 1, object_record_death ) ) {
+        
+        button_move = true;
+        button_point = x - room_width;
+        button_destroy = false;
+        
+    }
     
-        instance_create( 0, 0, object_button_play );
-    
-    } else {
-    
-        button_action_create_stage( 1 );
+    with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 8, object_button_nextstage ) ) {
         
-        with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 9, object_button_back ) ) {
+        button_move = true;
+        button_point = x - room_width;
+        button_destroy = false;
         
-            button_move = true;
-            button_point = x - room_width;
-            button_destroy = false;
+    }
+    with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 9, object_button_back ) ) {
         
-        }
-        with( instance_create( room_width + 128, y, object_button_prev ) ) {
+        button_move = true;
+        button_point = x - room_width;
+        button_destroy = false;
         
-            button_move = true;
-            button_point = x - room_width;
-            button_destroy = false;
-        
-        }
-        with( instance_create( room_width * 2 - 128, y, object_button_next ) ) {
-        
-            button_move = true;
-            button_point = x - room_width;
-            button_destroy = false;
-        
-        }
-    
     }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

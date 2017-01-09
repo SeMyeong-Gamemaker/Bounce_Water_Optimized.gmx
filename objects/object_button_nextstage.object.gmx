@@ -29,8 +29,10 @@
     image_xscale = room_width / sprite_width;
     image_yscale = 2;
     image_alpha = 0.25;
+    
+    if( global.stage[global.world] + 1 &gt; array_length_2d( global.stage_room, global.world ) - 1 ) { instance_destroy(); }
 
-    button_nextstage = false;
+
 </string>
           </argument>
         </arguments>
@@ -63,14 +65,14 @@
             button_move = false;
             if( button_destroy ) {
             
-                if( room = room_menu ) { instance_destroy(); }
-                else if( room = room_finish &amp;&amp; !button_nextstage) {
+                if( !button_fade ) { instance_destroy(); } 
+                else {
                 
-                    global.game_esc = true;
-                    room_goto( room_menu );
-        
+                    global.stage[global.world]++;
+                    room_goto( global.stage_room[global.world,global.stage[global.world]] );
+                
                 }
-            
+                
             }
         
         }
@@ -101,86 +103,54 @@
             <string>
     if( !button_move ) {
     
-        if( room = room_menu ) {
+        button_move = true;
+        button_point = x - room_width;
+        button_destroy = true;
+        button_fade = true;
         
-            button_move = true;
-            button_point = x + room_width;
-            button_destroy = true;
+        with( object_button_back ) {
             
-            button_action_create_world( 128, 16, 1, -1 );
-            
-            with( object_button_prev ) {
-            
-                button_move = true;
-                button_point = x + room_width;
-                button_destroy = true;
-            
-            }
-            with( object_button_next ) {
-            
-                button_move = true;
-                button_point = x + room_width;
-                button_destroy = true;
-            
-            }
-            with( object_button_stage ) {
-            
-                button_move = true;
-                button_point = x + room_width;
-                button_destroy = true;
-            
-            }
-            
-        } else if( room = room_finish ) {
-        
             button_move = true;
             button_point = x - room_width;
             button_destroy = true;
+            button_nextstage = true;
             
-            with( object_button_nextstage ) {
+        }
+        with( object_record_death ) {
             
-                button_move = true;
-                button_point = x - room_width;
-                button_destroy = true;
-            
-            }
-            with( object_record_death ) {
-            
-                button_move = true;
-                button_point = x - room_width;
-                button_destroy = true;
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
                 
-                if( x &gt; room_width * 1.5 ) { instance_destroy(); }
+            if( x &gt; room_width * 1.5 ) { instance_destroy(); }
             
-            }
-            with( object_record_fire ) {
+        }
+        with( object_record_fire ) {
             
-                button_move = true;
-                button_point = x - room_width;
-                button_destroy = true;
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
                 
-                if( x &gt; room_width * 1.5 ) { instance_destroy(); }
+            if( x &gt; room_width * 1.5 ) { instance_destroy(); }
             
-            }
-            with( object_record_time ) {
+        }
+        with( object_record_time ) {
             
-                button_move = true;
-                button_point = x - room_width;
-                button_destroy = true;
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
                 
-                if( x &gt; room_width * 1.5 ) { instance_destroy(); }
+            if( x &gt; room_width * 1.5 ) { instance_destroy(); }
             
-            }
-            with( object_record_completion ) {
+        }
+        with( object_record_completion ) {
             
-                button_move = true;
-                button_point = x - room_width;
-                button_destroy = true;
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = true;
                 
-                if( x &gt; room_width * 1.5 ) { instance_destroy(); }
+            if( x &gt; room_width * 1.5 ) { instance_destroy(); }
             
-            }
-        
         }
     
     }
@@ -214,8 +184,7 @@
     draw_set_valign( fa_middle );
     
     draw_set_colour( c_black );
-    if( room = room_menu ) { draw_text( x, y, "뒤로" ); }
-    else if( room = room_finish ) { draw_text( x, y, "스테이지 메뉴" ); }
+    draw_text( x, y, "다음 스테이지" );
 </string>
           </argument>
         </arguments>

@@ -9,11 +9,14 @@
     <sprites name="Ball">
       <sprite>sprites\sprite_ball_64</sprite>
       <sprite>sprites\sprite_ball_48</sprite>
+      <sprite>sprites\sprite_ball_16</sprite>
     </sprites>
     <sprites name="Block">
       <sprite>sprites\sprite_block_white</sprite>
+      <sprite>sprites\sprite_block_pipe</sprite>
       <sprite>sprites\sprite_block_water</sprite>
       <sprite>sprites\sprite_block_pollution</sprite>
+      <sprite>sprites\sprite_block_water_mask</sprite>
       <sprite>sprites\sprite_block_fire</sprite>
     </sprites>
     <sprites name="System">
@@ -24,10 +27,19 @@
       <sprites name="World">
         <sprite>sprites\sprite8</sprite>
       </sprites>
+      <sprites name="record">
+        <sprite>sprites\sprite_record_death</sprite>
+        <sprite>sprites\sprite_record_fire</sprite>
+        <sprite>sprites\sprite_record_time</sprite>
+        <sprite>sprites\sprite_record_completion</sprite>
+        <sprite>sprites\sprite_record_death_mini</sprite>
+        <sprite>sprites\sprite_record_fire_mini</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\background1</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -35,8 +47,10 @@
     <script>scripts\ball_action_gravity.gml</script>
     <script>scripts\ball_action_collision_horizontal.gml</script>
     <script>scripts\ball_action_collision_vertical.gml</script>
+    <script>scripts\ball_action_finish.gml</script>
     <script>scripts\button_action_create_world.gml</script>
     <script>scripts\button_action_create_stage.gml</script>
+    <script>scripts\surface_action_remove.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_18</font>
@@ -44,9 +58,14 @@
   <objects name="objects">
     <objects name="Ball">
       <object>objects\object_ball</object>
+      <object>objects\object_ball_drop</object>
     </objects>
     <objects name="Block">
       <object>objects\object_block</object>
+      <object>objects\object_pipe</object>
+      <object>objects\object_water</object>
+      <object>objects\object_pollution</object>
+      <object>objects\object_fire</object>
     </objects>
     <objects name="System">
       <objects name="Button">
@@ -56,16 +75,41 @@
         <object>objects\object_button_prev</object>
         <object>objects\object_button_next</object>
         <object>objects\object_button_stage</object>
+        <object>objects\object_button_nextstage</object>
       </objects>
-      <objects name="Stage">
-        <object>objects\object_stage_setup</object>
+      <objects name="Setup">
+        <object>objects\object_setup</object>
+      </objects>
+      <objects name="Ingame">
+        <object>objects\object_ingame_control</object>
+        <object>objects\object_ingame_fps</object>
+        <object>objects\object_ingame_background</object>
+        <object>objects\object_ingame_surface</object>
+        <object>objects\object_ingame_death</object>
+        <object>objects\object_name</object>
+      </objects>
+      <objects name="Record">
+        <object>objects\object_record_death</object>
+        <object>objects\object_record_fire</object>
+        <object>objects\object_record_time</object>
+        <object>objects\object_record_completion</object>
       </objects>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_setup</room>
     <room>rooms\room_menu</room>
-    <room>rooms\room2</room>
+    <room>rooms\room_finish</room>
+    <rooms name="World 0">
+      <room>rooms\room_0_1</room>
+      <room>rooms\room_0_2</room>
+      <room>rooms\room_0_3</room>
+      <room>rooms\room_0_4</room>
+      <room>rooms\room_0_5</room>
+    </rooms>
+    <rooms name="Test">
+      <room>rooms\room_test</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
