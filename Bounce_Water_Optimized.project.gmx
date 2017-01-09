@@ -47,9 +47,10 @@
     <script>scripts\ball_action_gravity.gml</script>
     <script>scripts\ball_action_collision_horizontal.gml</script>
     <script>scripts\ball_action_collision_vertical.gml</script>
+    <script>scripts\ball_action_finish.gml</script>
     <script>scripts\button_action_create_world.gml</script>
     <script>scripts\button_action_create_stage.gml</script>
-    <script>scripts\ball_action_finish.gml</script>
+    <script>scripts\surface_action_remove.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_18</font>
@@ -81,6 +82,7 @@
       </objects>
       <objects name="Ingame">
         <object>objects\object_ingame_control</object>
+        <object>objects\object_ingame_fps</object>
         <object>objects\object_ingame_background</object>
         <object>objects\object_ingame_surface</object>
         <object>objects\object_ingame_death</object>
@@ -99,6 +101,11 @@
     <room>rooms\room_menu</room>
     <room>rooms\room_finish</room>
     <rooms name="World 0">
+      <room>rooms\room_0_1</room>
+      <room>rooms\room_0_2</room>
+      <room>rooms\room_0_3</room>
+    </rooms>
+    <rooms name="Test">
       <room>rooms\room_test</room>
     </rooms>
   </rooms>

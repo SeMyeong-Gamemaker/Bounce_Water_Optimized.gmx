@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1001</depth>
+  <depth>-100000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,43 +25,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Ingame block surface
-// using surface to optimize
+            <string>/// FPS
+    
+    fpss = 10000;
+    fpssss = -1;
+    fpss25 = 0;
+    fpss20 = 0;
+    fpss15 = 0;
+    fpsss = 0;
+    fpson = false;
+    alarm[0] = 120
 
-    shadow_surface = noone;
-    block_surface = noone;
-    
-    
-    
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Gui
-
-    
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="5">
+    <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -78,15 +58,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Destroy surface
-
-    surface_action_remove();
+            <string>fpson = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="3">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -103,9 +81,51 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Destroy surface
-
-    surface_action_remove();
+            <string>    fpson = true;
+    if( fpson ) {
+    
+        fpss = fps_real;
+        fpssss = fps_real;
+        if( fps_real &gt;= 2500 ) { fpss25++; }
+        if( fps_real &gt;= 2000 &amp;&amp; fps_real &lt; 2500 ) { fpss20++; }
+        if( fps_real &gt;= 1500 &amp;&amp; fps_real &lt; 2000 ) { fpss15++; }
+        if( fps_real &lt; 1500 ) { fpsss++; }
+    
+    }
+    alarm[1] = room_speed * 30;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// FPS
+    
+    if( fpson ) {
+    
+        if( fps_real &gt; fpss ) { fpss = fps_real; }
+        if( fps_real &gt;= 2500 ) { fpss25++; }
+        if( fps_real &gt;= 2000 &amp;&amp; fps_real &lt; 2500 ) { fpss20++; }
+        if( fps_real &gt;= 1500 &amp;&amp; fps_real &lt; 2000 ) { fpss15++; }
+        if( fps_real &lt; 1500 ) { fpsss++; }
+    
+    }
 </string>
           </argument>
         </arguments>
@@ -128,52 +148,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw Surface
-    
-    if( surface_exists( shadow_surface ) ) { draw_surface( shadow_surface, 0, 0 ); } else { 
-    
-        shadow_surface = surface_create( room_width, room_height );
-        
-        surface_set_target( shadow_surface );
-        
-        draw_clear_alpha( c_white,0 );
-        
-        with( object_block ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_pipe ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        switch( global.world ) {
-        
-            case 0 : 
-            
-                with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
-                with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
-                break;
-            
-        }
-        
-        surface_reset_target();
-    
-    }
-    
-    with( object_water ) { draw_sprite( sprite_index, 0, x, y + 64 * ( 1 - ( water_amount / water_amount_max ) ) ); }
-    with( object_pollution ) { draw_sprite( sprite_index, 0, x, y + 64 * ( 1 - ( pollution_amount / pollution_amount_max ) ) ); }
-    
-    if( surface_exists( block_surface ) ) { draw_surface( block_surface, 0, 0 ); } else { 
-    
-        block_surface = surface_create( room_width, room_height );
-        
-        surface_set_target( block_surface );
-        
-        draw_clear_alpha( c_white,0 );
-        
-        with( object_block ) { draw_sprite( sprite_index, image_index, x, y ); }
-        with( object_pipe ) { draw_sprite( sprite_index, image_index, x, y ); }
-        
-        surface_reset_target();
-    
-    }
-    
-    with( object_fire ) { draw_sprite_ext( sprite_index, -1, x, y, 0.2 + 0.8 * fire_health / fire_health_max, 0.2 + 0.8 * fire_health / fire_health_max, 0, c_white, 1 ); }
+            <string>/// FPS Test
 
+    // FOR FPS TEST ONLY
+    
+    draw_set_colour( c_black );
+    draw_text( 128, 64, "MAXFPS : " + string( fpss ) );
+    draw_text( 128, 128, "MINFPS : " + string( fpssss ) );
+    draw_text( 128, 192, "CURENT : " + string( fps_real ) );
+    draw_text( 128, 256, "&gt;=2500 : " + string( fpss25 ) );
+    draw_text( 128, 320, "2000 2499 : " + string( fpss20 ) );
+    draw_text( 128, 384, "1500 1999 : " + string( fpss15 ) );
+    draw_text( 128, 448, "&lt; 1500 : " + string( fpsss ) );
 </string>
           </argument>
         </arguments>

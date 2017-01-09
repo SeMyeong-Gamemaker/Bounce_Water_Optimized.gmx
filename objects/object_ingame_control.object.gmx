@@ -25,18 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Setting
-    
-    // FOR FPS TEST ONLY
-    
-    fpss = 10000;
-    fpss25 = 0;
-    fpss20 = 0;
-    fpss15 = 0;
-    fpsss = 0;
-    fpson = false;
-    alarm[0] = 120
-    
+            <string>/// Setting 
 
     fire = 0;
     time = 0;
@@ -76,54 +65,6 @@
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>fpson = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>fpson = true;
-fpss = 0;
-alarm[1] = room_speed * 30;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -144,18 +85,6 @@ alarm[1] = room_speed * 30;
             <string>/// Time
 
     time++;
-    
-    //FOR FPS TEST ONLY
-    
-    if( fpson ) {
-    
-        if( fps_real &gt; fpss ) { fpss = fps_real; }
-        if( fps_real &gt;= 2500 ) { fpss25++; }
-        if( fps_real &gt;= 2000 &amp;&amp; fps_real &lt; 2500 ) { fpss20++; }
-        if( fps_real &gt;= 1500 &amp;&amp; fps_real &lt; 2000 ) { fpss15++; }
-        if( fps_real &lt; 1500 ) { fpsss++; }
-    
-    }
 </string>
           </argument>
         </arguments>
@@ -189,39 +118,6 @@ alarm[1] = room_speed * 30;
     }
     
     
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// FPS Test
-
-    // FOR FPS TEST ONLY
-    
-    draw_set_colour( c_black );
-    draw_text( 128, 64, "MAXFPS : " + string( fpss ) );
-    draw_text( 128, 128, "CURENT : " + string( fps_real ) );
-    draw_text( 128, 192, "&gt;=2500 : " + string( fpss25 ) );
-    draw_text( 128, 256, "2000 2499 : " + string( fpss20 ) );
-    draw_text( 128, 320, "1500 1999 : " + string( fpss15 ) );
-    draw_text( 128, 384, "&lt; 1500 : " + string( fpsss ) );
 </string>
           </argument>
         </arguments>

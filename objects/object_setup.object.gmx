@@ -27,11 +27,14 @@
             <kind>1</kind>
             <string>/// Stage Setup - World Tutorial ( 0 )
 
-    global.stage_room[0,1] = room_test;
-    global.stage_name[0,1] = "테스트 스테이지 1";
+    global.stage_room[0,1] = room_0_1;
+    global.stage_name[0,1] = "오른쪽 화면을 눌러 파이프로 들어가세요";
 
-    global.stage_room[0,2] = room_test;
-    global.stage_name[0,2] = "테스트 스테이지 2";
+    global.stage_room[0,2] = room_0_2;
+    global.stage_name[0,2] = "왼쪽 화면을 눌러 파이프로 들어가세요";
+    
+    global.stage_room[0,3] = room_0_3;
+    global.stage_name[0,3] = "0-3";
 </string>
           </argument>
         </arguments>

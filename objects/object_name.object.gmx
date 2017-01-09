@@ -76,6 +76,7 @@
             <kind>1</kind>
             <string>
     draw_set_alpha( image_alpha * 0.25 );
+    draw_set_colour( c_black );
     draw_rectangle( view_xview, view_yview + ( view_hview / 2 ) - 64, view_xview + view_wview, view_yview + ( view_hview / 2 ) + 64, false );
     
     draw_set_alpha( image_alpha );

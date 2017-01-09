@@ -172,6 +172,7 @@
     } else if( place_meeting( x, y + 1, object_pipe ) ) {
     
         ball_speed_v = 0;
+        surface_action_remove();
         ball_action_finish();
     
     } else {  // Ball is in midair

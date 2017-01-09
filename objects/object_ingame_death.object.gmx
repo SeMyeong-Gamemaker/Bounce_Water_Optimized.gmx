@@ -50,6 +50,7 @@
           <argument>
             <kind>1</kind>
             <string>
+    surface_action_remove();
     room_restart();
 </string>
           </argument>
