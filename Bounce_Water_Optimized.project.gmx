@@ -18,11 +18,15 @@
       <sprite>sprites\sprite_block_pollution</sprite>
       <sprite>sprites\sprite_block_water_mask</sprite>
       <sprite>sprites\sprite_block_fire</sprite>
+      <sprite>sprites\sprite_block_filter</sprite>
+      <sprite>sprites\sprite_block_filter_used</sprite>
+      <sprite>sprites\sprite_block_leaf</sprite>
     </sprites>
     <sprites name="System">
       <sprites name="Button">
         <sprite>sprites\sprite_button_mask</sprite>
         <sprite>sprites\sprite_button_round</sprite>
+        <sprite>sprites\sprite_button_locked</sprite>
       </sprites>
       <sprites name="World">
         <sprite>sprites\sprite8</sprite>
@@ -66,10 +70,13 @@
       <object>objects\object_water</object>
       <object>objects\object_pollution</object>
       <object>objects\object_fire</object>
+      <object>objects\object_filter</object>
+      <object>objects\object_leaf</object>
     </objects>
     <objects name="System">
       <objects name="Button">
         <object>objects\object_button_play</object>
+        <object>objects\object_ingame_surface</object>
         <object>objects\object_button_world</object>
         <object>objects\object_button_back</object>
         <object>objects\object_button_prev</object>
@@ -84,7 +91,6 @@
         <object>objects\object_ingame_control</object>
         <object>objects\object_ingame_fps</object>
         <object>objects\object_ingame_background</object>
-        <object>objects\object_ingame_surface</object>
         <object>objects\object_ingame_death</object>
         <object>objects\object_name</object>
       </objects>
@@ -106,6 +112,9 @@
       <room>rooms\room_0_3</room>
       <room>rooms\room_0_4</room>
       <room>rooms\room_0_5</room>
+      <room>rooms\room_0_6</room>
+      <room>rooms\room_0_7</room>
+      <room>rooms\room11</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>

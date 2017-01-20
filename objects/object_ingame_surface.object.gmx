@@ -154,6 +154,9 @@
     
     }
     
+    with( object_filter ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - filter_health / filter_health_max ); draw_sprite( sprite_block_filter_used, 0, x, y ); draw_set_alpha( 1 ); }
+    with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y, image_xscale, image_yscale, 0, c_white, 1 ); }
+    
     with( object_water ) { draw_sprite( sprite_index, 0, x, y + 64 * ( 1 - ( water_amount / water_amount_max ) ) ); }
     with( object_pollution ) { draw_sprite( sprite_index, 0, x, y + 64 * ( 1 - ( pollution_amount / pollution_amount_max ) ) ); }
     

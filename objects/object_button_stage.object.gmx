@@ -138,23 +138,26 @@
             <string>
     draw_sprite_ext( sprite_index, 0, x, y, 1, 1, 0, c_white, 0.25 );
     
-    draw_set_font( font_18 );
-    draw_set_halign( fa_center );
-    draw_set_valign( fa_middle );
-    
-    draw_set_colour( c_black );
-    draw_text( x, y, string( stage ) );
-    
-    if( fire ) { draw_sprite( sprite_record_fire_mini, 0, x - 32, y - 32 ); }
-    if( death ) { draw_sprite( sprite_record_death_mini, 0, x + 32, y - 32 ); }
-    
-    if( completion != 0 ) {
-    
-        draw_set_colour( c_dkgray );
-        draw_text( x, y + 32, string( round( completion * 100 ) ) + "%" );
-    
+    if( button_unlock ) {
+        
+        draw_set_font( font_18 );
+        draw_set_halign( fa_center );
+        draw_set_valign( fa_middle );
+        
+        draw_set_colour( c_black );
+        draw_text( x, y, string( stage ) );
+        
+        if( fire ) { draw_sprite( sprite_record_fire_mini, 0, x - 32, y - 32 ); }
+        if( death ) { draw_sprite( sprite_record_death_mini, 0, x + 32, y - 32 ); }
+        
+        if( completion != 0 ) {
+        
+            draw_set_colour( c_dkgray );
+            draw_text( x, y + 32, string( round( completion * 100 ) ) + "%" );
+        
+        }
+        
     }
-    
     
 </string>
           </argument>

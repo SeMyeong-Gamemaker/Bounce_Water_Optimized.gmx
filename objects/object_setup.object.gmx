@@ -41,6 +41,15 @@
     
     global.stage_room[0,5] = room_0_5;
     global.stage_name[0,5] = "0-5";
+    
+    global.stage_room[0,6] = room_0_6;
+    global.stage_name[0,6] = "불을 피해서 가세요";
+    
+    global.stage_room[0,7] = room_0_7;
+    global.stage_name[0,7] = "0-7";
+    
+    global.stage_room[0,8] = room11;
+    global.stage_name[0,8] = "0-8";
 </string>
           </argument>
         </arguments>
@@ -128,7 +137,7 @@
             global.stage_completion[i,j] = 0; // Stage completion
             global.stage_completion_record[i,j] = -1; // Stage maximum completion
             
-            global.stage_unlock[i,j] = false;
+            global.stage_unlock[i,j] = true;
         
         }
         
