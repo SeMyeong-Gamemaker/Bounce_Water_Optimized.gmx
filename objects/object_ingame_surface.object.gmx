@@ -140,6 +140,7 @@
         
         with( object_block ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
         with( object_pipe ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
+        with( object_filter ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
         switch( global.world ) {
         
             case 0 : 
@@ -154,7 +155,7 @@
     
     }
     
-    with( object_filter ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - filter_health / filter_health_max ); draw_sprite( sprite_block_filter_used, 0, x, y ); draw_set_alpha( 1 ); }
+    with( object_filter ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - filter_health / filter_health_max ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
     with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y, image_xscale, image_yscale, 0, c_white, 1 ); }
     
     with( object_water ) { draw_sprite( sprite_index, 0, x, y + 64 * ( 1 - ( water_amount / water_amount_max ) ) ); }

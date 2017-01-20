@@ -19,7 +19,6 @@
       <sprite>sprites\sprite_block_water_mask</sprite>
       <sprite>sprites\sprite_block_fire</sprite>
       <sprite>sprites\sprite_block_filter</sprite>
-      <sprite>sprites\sprite_block_filter_used</sprite>
       <sprite>sprites\sprite_block_leaf</sprite>
     </sprites>
     <sprites name="System">
