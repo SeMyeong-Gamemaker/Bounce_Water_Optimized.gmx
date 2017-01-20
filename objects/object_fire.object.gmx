@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>
-    image_speed = 1/6;    
+    image_speed = random_range( 1 / 5, 1 / 7 );
+    image_index = irandom( sprite_get_number( sprite_index ) );
 
     fire_health = 20;
     fire_health_max = 20;

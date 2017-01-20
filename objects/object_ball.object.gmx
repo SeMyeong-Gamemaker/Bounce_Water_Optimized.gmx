@@ -306,9 +306,11 @@
     ball_scale_y = lerp( ball_scale_y, 1, 0.1 );
     
     var ground = place_meeting( x, y + 1, object_block ) &amp;&amp; !place_meeting( x, yprevious + 1, object_block );
+    var filter = place_meeting( x, y + 1, object_filter ) &amp;&amp; !place_meeting( x, yprevious + 1, object_filter );
+    var leaf = place_meeting( x, y + 1, object_leaf ) &amp;&amp; !place_meeting( x, yprevious + 1, object_leaf );
     
     var touch = false;
-    if( ground ) { touch = true; }
+    if( ground || filter || leaf ) { touch = true; }
     
     if( touch ) {
     
