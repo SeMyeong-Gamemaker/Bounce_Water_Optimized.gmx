@@ -48,7 +48,7 @@
     global.stage_room[0,7] = room_0_7;
     global.stage_name[0,7] = "0-7";
     
-    global.stage_room[0,8] = room11;
+    global.stage_room[0,8] = room_test;
     global.stage_name[0,8] = "0-8";
 </string>
           </argument>
