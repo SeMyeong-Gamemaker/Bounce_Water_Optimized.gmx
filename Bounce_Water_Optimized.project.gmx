@@ -14,6 +14,8 @@
     <sprites name="Block">
       <sprite>sprites\sprite_block_white</sprite>
       <sprite>sprites\sprite_block_pipe</sprite>
+      <sprite>sprites\sprite_block_pipe_in</sprite>
+      <sprite>sprites\sprite_block_pipe_out</sprite>
       <sprite>sprites\sprite_block_water</sprite>
       <sprite>sprites\sprite_block_pollution</sprite>
       <sprite>sprites\sprite_block_water_mask</sprite>
@@ -51,10 +53,10 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\ball_action_jump.gml</script>
+    <script>scripts\ball_action_finish.gml</script>
     <script>scripts\ball_action_gravity.gml</script>
     <script>scripts\ball_action_collision_horizontal.gml</script>
     <script>scripts\ball_action_collision_vertical.gml</script>
-    <script>scripts\ball_action_finish.gml</script>
     <script>scripts\button_action_create_world.gml</script>
     <script>scripts\button_action_create_stage.gml</script>
     <script>scripts\surface_action_remove.gml</script>
@@ -73,6 +75,8 @@
     <objects name="Block">
       <object>objects\object_block</object>
       <object>objects\object_pipe</object>
+      <object>objects\object_pipe_in</object>
+      <object>objects\object_pipe_out</object>
       <object>objects\object_water</object>
       <object>objects\object_pollution</object>
       <object>objects\object_fire</object>
@@ -86,7 +90,6 @@
     <objects name="System">
       <objects name="Button">
         <object>objects\object_button_play</object>
-        <object>objects\object_ingame_surface</object>
         <object>objects\object_button_world</object>
         <object>objects\object_button_back</object>
         <object>objects\object_button_prev</object>
@@ -98,11 +101,12 @@
         <object>objects\object_setup</object>
       </objects>
       <objects name="Ingame">
-        <object>objects\object_ingame_control</object>
         <object>objects\object_ingame_fps</object>
-        <object>objects\object_ingame_background</object>
+        <object>objects\object_ingame_name</object>
         <object>objects\object_ingame_death</object>
-        <object>objects\object_name</object>
+        <object>objects\object_ingame_control</object>
+        <object>objects\object_ingame_surface</object>
+        <object>objects\object_ingame_background</object>
       </objects>
       <objects name="Record">
         <object>objects\object_record_death</object>

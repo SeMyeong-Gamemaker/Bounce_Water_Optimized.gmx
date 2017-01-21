@@ -59,7 +59,7 @@
 
     instance_create( 0, 0, object_ingame_background );
     instance_create( 0, 0, object_ingame_surface );
-    instance_create( 0, 0, object_name );
+    instance_create( 0, 0, object_ingame_name );
 </string>
           </argument>
         </arguments>

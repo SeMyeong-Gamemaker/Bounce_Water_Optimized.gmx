@@ -140,6 +140,8 @@
         
         with( object_block ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
         with( object_pipe ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
+        with( object_pipe_in ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
+        with( object_pipe_out ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
         with( object_filter ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
         with( object_sponge ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
         with( object_purifier ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
@@ -159,6 +161,8 @@
     
     }
     
+    with( object_ball ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.1 ); }
+    
     with( object_filter ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - filter_health / filter_health_max ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
     with( object_sponge ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - sponge_health / sponge_health_max ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
     with( object_purifier ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - purifier_health / purifier_health_max ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
@@ -177,6 +181,8 @@
         
         with( object_block ) { draw_sprite( sprite_index, image_index, x, y ); }
         with( object_pipe ) { draw_sprite( sprite_index, image_index, x, y ); }
+        with( object_pipe_in ) { draw_sprite( sprite_index, image_index, x, y ); }
+        with( object_pipe_out ) { draw_sprite( sprite_index, image_index, x, y ); }
         with( object_drain_up ) { draw_sprite( sprite_index, image_index, x, y ); }
         with( object_drain_down ) { draw_sprite( sprite_index, image_index, x, y ); }
         

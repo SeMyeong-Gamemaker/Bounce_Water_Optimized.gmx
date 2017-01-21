@@ -83,12 +83,13 @@
     <instance objName="object_purifier" x="480" y="608" name="inst_0E43EC30" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object_sponge" x="544" y="608" name="inst_F9154AF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object_sponge" x="608" y="608" name="inst_3B3AF302" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object_block" x="416" y="352" name="inst_161AC02F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object_drain_down" x="672" y="544" name="inst_4A64CEDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object_drain_down" x="736" y="544" name="inst_0E82B758" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object_drain_up" x="800" y="544" name="inst_2D133C47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object_drain_up" x="864" y="544" name="inst_117B970B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object_drain_down" x="736" y="416" name="inst_A7521249" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object_pipe_in" x="416" y="544" name="inst_1AF4C197" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object_pipe_out" x="736" y="352" name="inst_1823615A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
