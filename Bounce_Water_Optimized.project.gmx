@@ -19,6 +19,10 @@
       <sprite>sprites\sprite_block_water_mask</sprite>
       <sprite>sprites\sprite_block_fire</sprite>
       <sprite>sprites\sprite_block_filter</sprite>
+      <sprite>sprites\sprite_block_sponge</sprite>
+      <sprite>sprites\sprite_block_purifier</sprite>
+      <sprite>sprites\sprite_block_drain_up</sprite>
+      <sprite>sprites\sprite_block_drain_down</sprite>
       <sprite>sprites\sprite_block_leaf</sprite>
     </sprites>
     <sprites name="System">
@@ -54,6 +58,9 @@
     <script>scripts\button_action_create_world.gml</script>
     <script>scripts\button_action_create_stage.gml</script>
     <script>scripts\surface_action_remove.gml</script>
+    <script>scripts\block_action_filter.gml</script>
+    <script>scripts\block_action_sponge.gml</script>
+    <script>scripts\block_action_purifier.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_18</font>
@@ -70,6 +77,10 @@
       <object>objects\object_pollution</object>
       <object>objects\object_fire</object>
       <object>objects\object_filter</object>
+      <object>objects\object_sponge</object>
+      <object>objects\object_purifier</object>
+      <object>objects\object_drain_up</object>
+      <object>objects\object_drain_down</object>
       <object>objects\object_leaf</object>
     </objects>
     <objects name="System">

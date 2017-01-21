@@ -164,44 +164,62 @@
     
     // Vertical Movement
     
+    var air = true;
+    
     if( place_meeting( x, y + 1, object_block ) ) {  // Ball touches ground block( no effect )
     
+        air = false;
         ball_speed_v = 0;
         ball_action_jump( ball_speed_j, 0.75, 1.25 );
     
-    } else if( place_meeting( x, y + 1, object_pipe ) ) {  // Pipe
+    }
+    if( place_meeting( x, y + 1, object_pipe ) ) {  // Pipe
     
+        air = false;
         ball_speed_v = 0;
         surface_action_remove();
         ball_action_finish();
-        
-    } else if( place_meeting( x, y + 1, object_filter ) ) {  // Filter
+
+    }
+    if( place_meeting( x, y + 1, object_filter ) ) {  // Filter
     
+        air = false;
         ball_speed_v = 0;
         ball_action_jump( ball_speed_j, 0.75, 1.25 );
-        
-        var filter = instance_place( x, y + 1, object_filter );
-        var filter_h = filter.filter_health;
-        
-        if( filter_h &gt; 0 ) {
-        
-            if( ball_pollution &gt;= 10 ) {
-            
-                if( filter_h &gt;= 10 ) { filter.filter_health -= 10; ball_pollution -= 10; }
-                else { ball_pollution -= filter_h; filter.filter_health = 0; }
-            
-            }
-            else if( ball_pollution &gt; 0 ) {
-            
-                if( filter_h &gt;= ball_pollution ) { filter.filter_health -= ball_pollution; ball_pollution = 0; }
-                else { ball_pollution -= filter.filter_health; filter.filter_health = 0; }
-            
-            }
-        
-        }
-        
-    } else if( place_meeting( x, y + 1, object_leaf ) ) {  // Leaf
+        block_action_filter();
+
+    }
+    if( place_meeting( x, y + 1, object_sponge ) ) {  // Sponge
     
+        air = false;
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        block_action_sponge();
+        
+    }
+    if( place_meeting( x, y + 1, object_purifier ) ) {  // Purifier
+    
+        air = false;
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        block_action_purifier();
+        
+    }
+    if( place_meeting( x, y + 1, object_drain_down ) ) {  // Drain
+    
+        air = false;
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+    
+    }
+    if( place_meeting( x, y + 1, object_drain_up ) || place_meeting( x, y - 1, object_drain_down ) ) {  // Drain Death
+    
+        instance_destroy();
+    
+    }
+    if( place_meeting( x, y + 1, object_leaf ) ) {  // Leaf
+    
+        air = false;
         ball_speed_v = 0;
         ball_action_jump( ball_speed_j * 1.25, 0.5, 2 );
         
@@ -210,7 +228,9 @@
         leaf.image_xscale = 2;
         leaf.image_yscale = 0.5;
         
-    } else {  // Ball is in midair
+    }
+    
+    if( air ){  // Ball is in midair
     
         ball_action_gravity( 15, ball_gravity );
     
@@ -268,6 +288,10 @@
     ball_action_collision_horizontal( object_block, true );
     ball_action_collision_horizontal( object_pipe, true );
     ball_action_collision_horizontal( object_filter, true );
+    ball_action_collision_horizontal( object_sponge, true );
+    ball_action_collision_horizontal( object_purifier, true );
+    ball_action_collision_horizontal( object_drain_up, true );
+    ball_action_collision_horizontal( object_drain_down, true );
     ball_action_collision_horizontal( object_leaf, true );
     
     x += ball_speed_h;
@@ -277,6 +301,10 @@
     ball_action_collision_vertical( object_block, true );
     ball_action_collision_vertical( object_pipe, true );
     ball_action_collision_vertical( object_filter, true );
+    ball_action_collision_vertical( object_sponge, true );
+    ball_action_collision_vertical( object_purifier, true );
+    ball_action_collision_vertical( object_drain_up, true );
+    ball_action_collision_vertical( object_drain_down, true );
     ball_action_collision_vertical( object_leaf, true );
     
     y += ball_speed_v;
@@ -308,9 +336,11 @@
     var ground = place_meeting( x, y + 1, object_block ) &amp;&amp; !place_meeting( x, yprevious + 1, object_block );
     var filter = place_meeting( x, y + 1, object_filter ) &amp;&amp; !place_meeting( x, yprevious + 1, object_filter );
     var leaf = place_meeting( x, y + 1, object_leaf ) &amp;&amp; !place_meeting( x, yprevious + 1, object_leaf );
+    var purifier = place_meeting( x, y + 1, object_purifier ) &amp;&amp; !place_meeting( x, yprevious + 1, object_purifier );
+    var drain = place_meeting( x, y + 1, object_drain_down ) &amp;&amp; !place_meeting( x, yprevious + 1, object_drain_down );
     
     var touch = false;
-    if( ground || filter || leaf ) { touch = true; }
+    if( ground || filter || leaf || purifier || drain ) { touch = true; }
     
     if( touch ) {
     
