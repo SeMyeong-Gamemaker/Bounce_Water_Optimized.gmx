@@ -14,15 +14,24 @@
     <sprites name="Block">
       <sprite>sprites\sprite_block_white</sprite>
       <sprite>sprites\sprite_block_pipe</sprite>
+      <sprite>sprites\sprite_block_pipe_in</sprite>
+      <sprite>sprites\sprite_block_pipe_out</sprite>
       <sprite>sprites\sprite_block_water</sprite>
       <sprite>sprites\sprite_block_pollution</sprite>
       <sprite>sprites\sprite_block_water_mask</sprite>
       <sprite>sprites\sprite_block_fire</sprite>
+      <sprite>sprites\sprite_block_filter</sprite>
+      <sprite>sprites\sprite_block_sponge</sprite>
+      <sprite>sprites\sprite_block_purifier</sprite>
+      <sprite>sprites\sprite_block_drain_up</sprite>
+      <sprite>sprites\sprite_block_drain_down</sprite>
+      <sprite>sprites\sprite_block_leaf</sprite>
     </sprites>
     <sprites name="System">
       <sprites name="Button">
         <sprite>sprites\sprite_button_mask</sprite>
         <sprite>sprites\sprite_button_round</sprite>
+        <sprite>sprites\sprite_button_locked</sprite>
       </sprites>
       <sprites name="World">
         <sprite>sprites\sprite8</sprite>
@@ -44,13 +53,16 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\ball_action_jump.gml</script>
+    <script>scripts\ball_action_finish.gml</script>
     <script>scripts\ball_action_gravity.gml</script>
     <script>scripts\ball_action_collision_horizontal.gml</script>
     <script>scripts\ball_action_collision_vertical.gml</script>
-    <script>scripts\ball_action_finish.gml</script>
     <script>scripts\button_action_create_world.gml</script>
     <script>scripts\button_action_create_stage.gml</script>
     <script>scripts\surface_action_remove.gml</script>
+    <script>scripts\block_action_filter.gml</script>
+    <script>scripts\block_action_sponge.gml</script>
+    <script>scripts\block_action_purifier.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_18</font>
@@ -63,9 +75,17 @@
     <objects name="Block">
       <object>objects\object_block</object>
       <object>objects\object_pipe</object>
+      <object>objects\object_pipe_in</object>
+      <object>objects\object_pipe_out</object>
       <object>objects\object_water</object>
       <object>objects\object_pollution</object>
       <object>objects\object_fire</object>
+      <object>objects\object_filter</object>
+      <object>objects\object_sponge</object>
+      <object>objects\object_purifier</object>
+      <object>objects\object_drain_up</object>
+      <object>objects\object_drain_down</object>
+      <object>objects\object_leaf</object>
     </objects>
     <objects name="System">
       <objects name="Button">
@@ -81,12 +101,12 @@
         <object>objects\object_setup</object>
       </objects>
       <objects name="Ingame">
-        <object>objects\object_ingame_control</object>
         <object>objects\object_ingame_fps</object>
-        <object>objects\object_ingame_background</object>
-        <object>objects\object_ingame_surface</object>
+        <object>objects\object_ingame_name</object>
         <object>objects\object_ingame_death</object>
-        <object>objects\object_name</object>
+        <object>objects\object_ingame_control</object>
+        <object>objects\object_ingame_surface</object>
+        <object>objects\object_ingame_background</object>
       </objects>
       <objects name="Record">
         <object>objects\object_record_death</object>
@@ -106,6 +126,9 @@
       <room>rooms\room_0_3</room>
       <room>rooms\room_0_4</room>
       <room>rooms\room_0_5</room>
+      <room>rooms\room_0_6</room>
+      <room>rooms\room_0_7</room>
+      <room>rooms\room11</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>

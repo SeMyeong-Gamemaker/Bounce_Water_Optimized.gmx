@@ -86,22 +86,23 @@
             <kind>1</kind>
             <string>
     instance_create( x, y, object_ingame_death );
-    
-    global.stage_death[global.world,global.stage[global.world]]++;
-    
-    repeat( 16 ) {
-    
-        with( instance_create( x + lengthdir_x( random( 24 ), random( 360 ) ), y + lengthdir_y( random( 24 ), random( 360 ) ), object_ball_drop ) ) {
         
+    global.stage_death[global.world,global.stage[global.world]]++;
+        
+    repeat( 16 ) {
+        
+        with( instance_create( x + lengthdir_x( random( 24 ), random( 360 ) ), y + lengthdir_y( random( 24 ), random( 360 ) ), object_ball_drop ) ) {
+            
             gravity = 0.25;
-            friction = 0.05;
+            frition = 0.05;
             image_alpha = 0.5;
             pollution = other.ball_pollution / other.ball_water_max;
             motion_add( random( 360 ), random_range( 3, 5 ) );
         
         }
-    
+        
     }
+
 </string>
           </argument>
         </arguments>
@@ -164,17 +165,71 @@
     
     // Vertical Movement
     
-    if( place_meeting( x, y + 1, object_block ) ) {  // Ball touches ground block( no effect )
     
-        ball_speed_v = 0;
-        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+    if( !place_free( x, y + 1 ) ) {
     
-    } else if( place_meeting( x, y + 1, object_pipe ) ) {
+        if( place_meeting( x, y + 1, object_block ) ) {  // Ball touches ground block( no effect )
+        
+            ball_speed_v = 0;
+            ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        
+        } else if( place_meeting( x, y + 1, object_pipe ) ) {  // Pipe
+        
+            ball_speed_v = 0;
+            surface_action_remove();
+            ball_action_finish();
     
-        ball_speed_v = 0;
-        surface_action_remove();
-        ball_action_finish();
+        } else if( place_meeting( x, y + 1, object_pipe_in ) ) {  // Pipe In
+        
+            ball_speed_v = 0;
+            ball_action_jump( ball_speed_j, 0.75, 1.25 );
+            
+            x = object_pipe_out.x;
+            y = object_pipe_out.y - 64;
+        
+        } else if( place_meeting( x, y + 1, object_pipe_out ) ) {  // Pipe Out
+        
+            ball_speed_v = 0;
+            ball_action_jump( ball_speed_j, 0.75, 1.25 );
     
+        } else if( place_meeting( x, y + 1, object_filter ) ) {  // Filter
+        
+            ball_speed_v = 0;
+            ball_action_jump( ball_speed_j, 0.75, 1.25 );
+            block_action_filter();
+    
+        } else if( place_meeting( x, y + 1, object_sponge ) ) {  // Sponge
+        
+            ball_speed_v = 0;
+            ball_action_jump( ball_speed_j, 0.75, 1.25 );
+            block_action_sponge();
+            
+        } else if( place_meeting( x, y + 1, object_purifier ) ) {  // Purifier
+        
+            ball_speed_v = 0;
+            ball_action_jump( ball_speed_j, 0.75, 1.25 );
+            block_action_purifier();
+            
+        } else if( place_meeting( x, y + 1, object_drain_down ) ) {  // Drain
+        
+            ball_speed_v = 0;
+            ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        
+        } else if( place_meeting( x, y + 1, object_drain_up ) || place_meeting( x, y - 1, object_drain_down ) ) {  // Drain Death
+        
+            instance_destroy();
+        
+        } else if( place_meeting( x, y + 1, object_leaf ) ) {  // Leaf
+        
+            ball_speed_v = 0;
+            ball_action_jump( ball_speed_j * 1.25, 0.5, 2 );
+            
+            var leaf = instance_place( x, y + 1, object_leaf );
+            
+            leaf.image_xscale = 2;
+            leaf.image_yscale = 0.5;
+        }
+        
     } else {  // Ball is in midair
     
         ball_action_gravity( 15, ball_gravity );
@@ -230,15 +285,55 @@
 
     // Horizontal Collision
     
+    if( !place_free( x + ball_speed_h, y ) ) {
+    
+        while( !place_free( x + sign( ball_speed_h ), y ) ) {
+            
+            x += sign( ball_speed_h );
+            
+        }
+            
+        ball_speed_h = 0;
+        
+    }
+    /*
     ball_action_collision_horizontal( object_block, true );
     ball_action_collision_horizontal( object_pipe, true );
+    ball_action_collision_horizontal( object_pipe_in, true );
+    ball_action_collision_horizontal( object_pipe_out, true );
+    ball_action_collision_horizontal( object_filter, true );
+    ball_action_collision_horizontal( object_sponge, true );
+    ball_action_collision_horizontal( object_purifier, true );
+    ball_action_collision_horizontal( object_drain_up, true );
+    ball_action_collision_horizontal( object_drain_down, true );
+    ball_action_collision_horizontal( object_leaf, true );*/
     
     x += ball_speed_h;
     
     // Vertical Collision
     
+    if( !place_free( x, y + ball_speed_v ) ) {
+    
+        while( !place_free( x, y + sign( ball_speed_v ) ) ) {
+            
+            y += sign( ball_speed_v );
+            
+        }
+            
+        ball_speed_v = 0;
+        
+    }
+    /*
     ball_action_collision_vertical( object_block, true );
     ball_action_collision_vertical( object_pipe, true );
+    ball_action_collision_vertical( object_pipe_in, true );
+    ball_action_collision_vertical( object_pipe_out, true );
+    ball_action_collision_vertical( object_filter, true );
+    ball_action_collision_vertical( object_sponge, true );
+    ball_action_collision_vertical( object_purifier, true );
+    ball_action_collision_vertical( object_drain_up, true );
+    ball_action_collision_vertical( object_drain_down, true );
+    ball_action_collision_vertical( object_leaf, true );*/
     
     y += ball_speed_v;
 </string>
@@ -265,13 +360,8 @@
 
     ball_scale_x = lerp( ball_scale_x, 1, 0.1 );
     ball_scale_y = lerp( ball_scale_y, 1, 0.1 );
-    
-    var ground = place_meeting( x, y + 1, object_block ) &amp;&amp; !place_meeting( x, yprevious + 1, object_block );
-    
-    var touch = false;
-    if( ground ) { touch = true; }
-    
-    if( touch ) {
+
+    if( !place_free( x, y + 1 ) ) {
     
         ball_scale_x = 1.25;
         ball_scale_y = 0.75;
@@ -384,11 +474,11 @@
     draw_sprite_ext( sprite_index, 0, x, y, ball_scale_x, ball_scale_y, direction, c_white, 1 );
     draw_sprite_ext( sprite_index, 1, x, y, ball_scale_x, ball_scale_y, direction, c_white, ball_pollution / ball_water_max );
 
-    draw_sprite_ext( sprite_button_mask, 0, view_xview + ( view_wview / 2 ), view_yview + 32, 5 * ( ball_water + ball_pollution ) / ball_water_max, 1, -view_angle, colour_water, 1 );
-    draw_sprite_ext( sprite_button_mask, 0, view_xview + ( view_wview / 2 ), view_yview + 32, 5 * ball_pollution / ball_water_max, 1, -view_angle, colour_pollution, 1 );
+    draw_sprite_ext( sprite_button_mask, 0, view_xview + ( view_wview / 2 ) + lengthdir_x( ( view_hview / 2 ) - 32, 90 -view_angle ), view_yview + ( view_hview / 2 ) + lengthdir_y( ( view_hview / 2 ) - 32, 90 -view_angle ), 5 * ( ball_water + ball_pollution ) / ball_water_max, 1, -view_angle, colour_water, 1 );
+    draw_sprite_ext( sprite_button_mask, 0, view_xview + ( view_wview / 2 ) + lengthdir_x( ( view_hview / 2 ) - 32, 90 -view_angle ), view_yview + ( view_hview / 2 ) + lengthdir_y( ( view_hview / 2 ) - 32, 90 -view_angle ), 5 * ball_pollution / ball_water_max, 1, -view_angle, colour_pollution, 1 );
     
     draw_set_colour( c_white );
-    draw_text_transformed( view_xview + ( view_wview / 2 ), view_yview + 32, string( ball_water + ball_pollution ), 1, 1, -view_angle );
+    draw_text_transformed( view_xview + ( view_wview / 2 ) + lengthdir_x( ( view_hview / 2 ) - 32, 90 -view_angle ), view_yview + ( view_hview / 2 ) + lengthdir_y( ( view_hview / 2 ) - 32, 90 -view_angle ), string( ball_water + ball_pollution ), 1, 1, -view_angle );
 
 
 </string>

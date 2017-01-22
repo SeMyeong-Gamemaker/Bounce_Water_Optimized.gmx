@@ -13,7 +13,10 @@
             stage = other.i;
             button_fade = false;
             button_move = true;
+            button_unlock = global.stage_unlock[global.world,stage];
             button_destroy = false;
+            
+            if( !button_unlock ) { sprite_index = sprite_button_locked; }
             
             if( global.stage_death_record[global.world,stage] == 0 ) { death = true; } else { death = false; }
             if( global.stage_fire_record[global.world,stage] == global.stage_fire_count[global.world,stage] ) { fire = true; } else { fire = false; }
