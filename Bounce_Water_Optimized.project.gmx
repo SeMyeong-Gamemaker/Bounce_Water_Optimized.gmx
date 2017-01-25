@@ -11,22 +11,6 @@
       <sprite>sprites\sprite_ball_48</sprite>
       <sprite>sprites\sprite_ball_16</sprite>
     </sprites>
-    <sprites name="Block">
-      <sprite>sprites\sprite_block_white</sprite>
-      <sprite>sprites\sprite_block_pipe</sprite>
-      <sprite>sprites\sprite_block_pipe_in</sprite>
-      <sprite>sprites\sprite_block_pipe_out</sprite>
-      <sprite>sprites\sprite_block_water</sprite>
-      <sprite>sprites\sprite_block_pollution</sprite>
-      <sprite>sprites\sprite_block_water_mask</sprite>
-      <sprite>sprites\sprite_block_fire</sprite>
-      <sprite>sprites\sprite_block_filter</sprite>
-      <sprite>sprites\sprite_block_sponge</sprite>
-      <sprite>sprites\sprite_block_purifier</sprite>
-      <sprite>sprites\sprite_block_drain_up</sprite>
-      <sprite>sprites\sprite_block_drain_down</sprite>
-      <sprite>sprites\sprite_block_leaf</sprite>
-    </sprites>
     <sprites name="System">
       <sprites name="Button">
         <sprite>sprites\sprite_button_mask</sprite>
@@ -44,6 +28,24 @@
         <sprite>sprites\sprite_record_death_mini</sprite>
         <sprite>sprites\sprite_record_fire_mini</sprite>
       </sprites>
+    </sprites>
+    <sprites name="Block">
+      <sprite>sprites\sprite_block_white</sprite>
+      <sprite>sprites\sprite_block_pipe</sprite>
+      <sprite>sprites\sprite_block_pipe_in</sprite>
+      <sprite>sprites\sprite_block_pipe_out</sprite>
+      <sprite>sprites\sprite_block_water</sprite>
+      <sprite>sprites\sprite_block_pollution</sprite>
+      <sprite>sprites\sprite_block_water_mask</sprite>
+      <sprite>sprites\sprite_block_fire</sprite>
+      <sprite>sprites\sprite_block_filter</sprite>
+      <sprite>sprites\sprite_block_sponge</sprite>
+      <sprite>sprites\sprite_block_purifier</sprite>
+      <sprite>sprites\sprite_block_drain_up</sprite>
+      <sprite>sprites\sprite_block_drain_down</sprite>
+      <sprite>sprites\sprite_block_leaf</sprite>
+      <sprite>sprites\sprite_block_broken</sprite>
+      <sprite>sprites\sprite_block_broken_bridge</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -128,6 +130,7 @@
       <room>rooms\room_0_5</room>
       <room>rooms\room_0_6</room>
       <room>rooms\room_0_7</room>
+      <room>rooms\room_0_8</room>
       <room>rooms\room11</room>
     </rooms>
     <rooms name="Test">

@@ -165,70 +165,66 @@
     
     // Vertical Movement
     
+    if( place_meeting( x, y + 1, object_block ) ) {  // Ball touches ground block( no effect )
+        
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        
+    } else if( place_meeting( x, y + 1, object_pipe ) ) {  // Pipe
+        
+        ball_speed_v = 0;
+        surface_action_remove();
+        ball_action_finish();
     
-    if( !place_free( x, y + 1 ) ) {
+    } else if( place_meeting( x, y + 1, object_pipe_in ) ) {  // Pipe In
+        
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+            
+        x = object_pipe_out.x;
+        y = object_pipe_out.y - 64;
+        
+    } else if( place_meeting( x, y + 1, object_pipe_out ) ) {  // Pipe Out
+        
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
     
-        if( place_meeting( x, y + 1, object_block ) ) {  // Ball touches ground block( no effect )
+    } else if( place_meeting( x, y + 1, object_filter ) ) {  // Filter
         
-            ball_speed_v = 0;
-            ball_action_jump( ball_speed_j, 0.75, 1.25 );
-        
-        } else if( place_meeting( x, y + 1, object_pipe ) ) {  // Pipe
-        
-            ball_speed_v = 0;
-            surface_action_remove();
-            ball_action_finish();
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        block_action_filter();
     
-        } else if( place_meeting( x, y + 1, object_pipe_in ) ) {  // Pipe In
+    } else if( place_meeting( x, y + 1, object_sponge ) ) {  // Sponge
         
-            ball_speed_v = 0;
-            ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        block_action_sponge();
             
-            x = object_pipe_out.x;
-            y = object_pipe_out.y - 64;
+    } else if( place_meeting( x, y + 1, object_purifier ) ) {  // Purifier
         
-        } else if( place_meeting( x, y + 1, object_pipe_out ) ) {  // Pipe Out
-        
-            ball_speed_v = 0;
-            ball_action_jump( ball_speed_j, 0.75, 1.25 );
-    
-        } else if( place_meeting( x, y + 1, object_filter ) ) {  // Filter
-        
-            ball_speed_v = 0;
-            ball_action_jump( ball_speed_j, 0.75, 1.25 );
-            block_action_filter();
-    
-        } else if( place_meeting( x, y + 1, object_sponge ) ) {  // Sponge
-        
-            ball_speed_v = 0;
-            ball_action_jump( ball_speed_j, 0.75, 1.25 );
-            block_action_sponge();
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        block_action_purifier();
             
-        } else if( place_meeting( x, y + 1, object_purifier ) ) {  // Purifier
+    } else if( place_meeting( x, y + 1, object_drain_down ) ) {  // Drain
         
-            ball_speed_v = 0;
-            ball_action_jump( ball_speed_j, 0.75, 1.25 );
-            block_action_purifier();
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        
+    } else if( place_meeting( x, y + 1, object_drain_up ) || place_meeting( x, y - 1, object_drain_down ) ) {  // Drain Death
+        
+        instance_destroy();
+        
+    } else if( place_meeting( x, y + 1, object_leaf ) ) {  // Leaf
+        
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j * 1.25, 0.5, 2 );
             
-        } else if( place_meeting( x, y + 1, object_drain_down ) ) {  // Drain
-        
-            ball_speed_v = 0;
-            ball_action_jump( ball_speed_j, 0.75, 1.25 );
-        
-        } else if( place_meeting( x, y + 1, object_drain_up ) || place_meeting( x, y - 1, object_drain_down ) ) {  // Drain Death
-        
-            instance_destroy();
-        
-        } else if( place_meeting( x, y + 1, object_leaf ) ) {  // Leaf
-        
-            ball_speed_v = 0;
-            ball_action_jump( ball_speed_j * 1.25, 0.5, 2 );
+        var leaf = instance_place( x, y + 1, object_leaf );
             
-            var leaf = instance_place( x, y + 1, object_leaf );
-            
-            leaf.image_xscale = 2;
-            leaf.image_yscale = 0.5;
-        }
+        leaf.image_xscale = 2;
+        leaf.image_yscale = 0.5;
         
     } else {  // Ball is in midair
     
@@ -284,19 +280,7 @@
             <string>/// Excute Collision &amp; Moving
 
     // Horizontal Collision
-    
-    if( !place_free( x + ball_speed_h, y ) ) {
-    
-        while( !place_free( x + sign( ball_speed_h ), y ) ) {
-            
-            x += sign( ball_speed_h );
-            
-        }
-            
-        ball_speed_h = 0;
-        
-    }
-    /*
+
     ball_action_collision_horizontal( object_block, true );
     ball_action_collision_horizontal( object_pipe, true );
     ball_action_collision_horizontal( object_pipe_in, true );
@@ -306,24 +290,12 @@
     ball_action_collision_horizontal( object_purifier, true );
     ball_action_collision_horizontal( object_drain_up, true );
     ball_action_collision_horizontal( object_drain_down, true );
-    ball_action_collision_horizontal( object_leaf, true );*/
+    ball_action_collision_horizontal( object_leaf, true );
     
     x += ball_speed_h;
     
     // Vertical Collision
-    
-    if( !place_free( x, y + ball_speed_v ) ) {
-    
-        while( !place_free( x, y + sign( ball_speed_v ) ) ) {
-            
-            y += sign( ball_speed_v );
-            
-        }
-            
-        ball_speed_v = 0;
-        
-    }
-    /*
+
     ball_action_collision_vertical( object_block, true );
     ball_action_collision_vertical( object_pipe, true );
     ball_action_collision_vertical( object_pipe_in, true );
@@ -333,7 +305,7 @@
     ball_action_collision_vertical( object_purifier, true );
     ball_action_collision_vertical( object_drain_up, true );
     ball_action_collision_vertical( object_drain_down, true );
-    ball_action_collision_vertical( object_leaf, true );*/
+    ball_action_collision_vertical( object_leaf, true );
     
     y += ball_speed_v;
 </string>
