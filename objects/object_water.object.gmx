@@ -28,6 +28,7 @@
             <string>    
     water_amount = 100;
     water_amount_max = 100;
+    water_used = 0;
     
 </string>
           </argument>
@@ -45,7 +46,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -58,6 +59,8 @@
         
             water_amount--;
             other.water_amount++;
+            water_used = 1 - ( water_amount / water_amount_max );
+            object_ingame_surface.surface_update_water = true;
         
         }
     
@@ -67,6 +70,8 @@
         
             water_amount--;
             other.water_amount++;
+            water_used = 1 - ( water_amount / water_amount_max );
+            object_ingame_surface.surface_update_water = true;
         
         }
     
@@ -98,6 +103,8 @@
     
         water_amount--;
         other.ball_water++;
+        water_used = 1 - ( water_amount / water_amount_max );
+        object_ingame_surface.surface_update_water = true;
     
     }
 </string>

@@ -28,6 +28,7 @@
             <string>    
     pollution_amount = 100;
     pollution_amount_max = 100;
+    pollution_used = 0;
     
 </string>
           </argument>
@@ -58,6 +59,8 @@
         
             pollution_amount--;
             other.pollution_amount++;
+            pollution_used = 1 - ( pollution_amount / pollution_amount_max );
+            object_ingame_surface.surface_update_water = true;
         
         }
     
@@ -67,6 +70,8 @@
         
             pollution_amount--;
             other.pollution_amount++;
+            pollution_used = 1 - ( pollution_amount / pollution_amount_max );
+            object_ingame_surface.surface_update_water = true;
         
         }
     
@@ -98,12 +103,16 @@
     
         pollution_amount--;
         other.ball_pollution++;
+        pollution_used = 1 - ( pollution_amount / pollution_amount_max );
+        object_ingame_surface.surface_update_water = true;
     
     } else if( other.ball_water + other.ball_pollution == other.ball_water_max &amp;&amp; pollution_amount &gt; 0 ) {
     
         pollution_amount--;
         other.ball_water--;
         other.ball_pollution++;
+        pollution_used = 1 - ( pollution_amount / pollution_amount_max );
+        object_ingame_surface.surface_update_water = true;
     
     }
     

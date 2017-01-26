@@ -62,6 +62,7 @@
     <script>scripts\button_action_create_world.gml</script>
     <script>scripts\button_action_create_stage.gml</script>
     <script>scripts\surface_action_remove.gml</script>
+    <script>scripts\block_action_broken_block.gml</script>
     <script>scripts\block_action_filter.gml</script>
     <script>scripts\block_action_sponge.gml</script>
     <script>scripts\block_action_purifier.gml</script>
@@ -87,6 +88,7 @@
       <object>objects\object_purifier</object>
       <object>objects\object_drain_up</object>
       <object>objects\object_drain_down</object>
+      <object>objects\object_broken</object>
       <object>objects\object_leaf</object>
     </objects>
     <objects name="System">
@@ -117,6 +119,9 @@
         <object>objects\object_record_completion</object>
       </objects>
     </objects>
+    <objects name="Effect">
+      <object>objects\object_effect_broken</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room_setup</room>
@@ -131,7 +136,8 @@
       <room>rooms\room_0_6</room>
       <room>rooms\room_0_7</room>
       <room>rooms\room_0_8</room>
-      <room>rooms\room11</room>
+      <room>rooms\room_0_9</room>
+      <room>rooms\room_0_10</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>

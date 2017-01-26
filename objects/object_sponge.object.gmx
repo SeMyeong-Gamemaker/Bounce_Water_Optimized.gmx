@@ -28,7 +28,7 @@
             <string>
     sponge_health_max = 50;
     sponge_health = sponge_health_max;
-
+    sponge_used = 0;
 </string>
           </argument>
         </arguments>
