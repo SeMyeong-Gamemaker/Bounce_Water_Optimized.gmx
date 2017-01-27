@@ -43,9 +43,10 @@
       <sprite>sprites\sprite_block_purifier</sprite>
       <sprite>sprites\sprite_block_drain_up</sprite>
       <sprite>sprites\sprite_block_drain_down</sprite>
-      <sprite>sprites\sprite_block_leaf</sprite>
       <sprite>sprites\sprite_block_broken</sprite>
       <sprite>sprites\sprite_block_broken_bridge</sprite>
+      <sprite>sprites\sprite_block_bridge</sprite>
+      <sprite>sprites\sprite_block_leaf</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -89,6 +90,8 @@
       <object>objects\object_drain_up</object>
       <object>objects\object_drain_down</object>
       <object>objects\object_broken</object>
+      <object>objects\object_broken_bridge</object>
+      <object>objects\object_bridge</object>
       <object>objects\object_leaf</object>
     </objects>
     <objects name="System">

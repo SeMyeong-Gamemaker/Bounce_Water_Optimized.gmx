@@ -75,6 +75,7 @@
             <string>/// Instance number
     
     number_broken = instance_number( object_broken );
+    number_broken += instance_number( object_broken_bridge );
     
     number_jumper = instance_number( object_leaf );
     
@@ -170,7 +171,9 @@
                 
                 draw_clear_alpha( c_white,0 );
             
-                with( object_broken ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
+                with( object_broken ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+                with( object_broken_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+                with( object_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
             
                 surface_reset_target();
             
@@ -185,7 +188,9 @@
             
             draw_clear_alpha( c_white,0 );
             
-            with( object_broken ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
+            with( object_broken ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+            with( object_broken_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+            with( object_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
             
             surface_reset_target();
         
@@ -203,15 +208,15 @@
         
         draw_clear_alpha( c_white,0 );
         
-        with( object_block ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_pipe ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_pipe_in ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_pipe_out ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_filter ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_sponge ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_purifier ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_drain_up ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_drain_down ) { draw_sprite_ext( sprite_index, 0, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
+        with( object_block ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_pipe ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_pipe_in ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_pipe_out ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_filter ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_sponge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_purifier ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_drain_up ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_drain_down ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
         
         switch( global.world ) {
         
@@ -227,7 +232,7 @@
     
     }
     
-    with( object_ball ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.1 ); }
+    with( object_ball ) { draw_sprite_ext( sprite_index, image_index, x, y + 8, 1, 1, 0, c_black, 0.1 ); }
     
     // Jumper shadow surface
     
@@ -241,7 +246,7 @@
                 
                 draw_clear_alpha( c_white,0 );
             
-                with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y + 16, image_xscale, image_yscale, 0, c_black, 0.5 ); }
+                with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y + 8, image_xscale, image_yscale, 0, c_black, 0.75 ); }
             
                 surface_reset_target();
             
@@ -256,7 +261,7 @@
             
             draw_clear_alpha( c_white,0 );
             
-            with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y + 16, image_xscale, image_yscale, 0, c_black, 0.5 ); }
+            with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y + 8, image_xscale, image_yscale, 0, c_black, 0.75 ); }
             
             surface_reset_target();
         
@@ -368,6 +373,8 @@
                 draw_clear_alpha( c_white,0 );
             
                 with( object_broken ) { draw_sprite( sprite_index, 0, x, y ); }
+                with( object_broken_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
+                with( object_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
             
                 surface_reset_target();
                 
@@ -385,6 +392,8 @@
             draw_clear_alpha( c_white,0 );
             
             with( object_broken ) { draw_sprite( sprite_index, 0, x, y ); }
+            with( object_broken_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
+            with( object_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
             
             surface_reset_target();
         
@@ -526,7 +535,12 @@
             <kind>1</kind>
             <string>/// Effect
 
-    with( object_effect_broken ) { draw_sprite_ext( sprite_index, image_index, x, y, 1, 1, image_angle, c_white, image_alpha ); }
+    with( object_effect_broken ) {
+    
+        draw_sprite_ext( sprite_index, image_index, x, y + 8, 1, 1, image_angle, c_black, 0.5 * image_alpha );
+        draw_sprite_ext( sprite_index, image_index, x, y, 1, 1, image_angle, c_white, image_alpha );
+    
+    }
 </string>
           </argument>
         </arguments>
