@@ -57,8 +57,11 @@
     global.stage_room[0,10] = room_0_10;
     global.stage_name[0,10] = "0-10";
     
-    global.stage_room[0,11] = room_test;
-    global.stage_name[0,11] = "0-10";
+    global.stage_room[0,11] = room_0_11;
+    global.stage_name[0,11] = "물을 흡수해서 불을 끄세요";
+    
+    global.stage_room[0,12] = room_0_12;
+    global.stage_name[0,12] = "0-12";
 </string>
           </argument>
         </arguments>
