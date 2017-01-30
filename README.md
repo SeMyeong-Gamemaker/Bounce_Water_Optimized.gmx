@@ -1,7 +1,7 @@
 #Bounce_Water_Optimized ( 최적화 버전 )
 
 ## 최근 업데이트
-- 맵 에디터
+- 맵 에디터 : [비디오](https://github.com/SeMyeong-Gamemaker/Bounce_Water_Optimized.gmx/blob/unstable/files/video_1.mp4?raw=true)
 - ![Alt text](/files/image_1.png)
 - ![Alt text](/files/image_2.png)
 
