@@ -106,6 +106,31 @@
             button_destroy = true;
             
         }
+        if( global.world == 2 ) {
+        
+            with( object_button_custom_small ) {
+            
+                button_move = true;
+                button_point = x - room_width;
+                button_destroy = true;
+                    
+            }
+            with( object_button_custom_medium ) {
+            
+                button_move = true;
+                button_point = x - room_width;
+                button_destroy = true;
+                    
+            }
+            with( object_button_custom_large ) {
+            
+                button_move = true;
+                button_point = x - room_width;
+                button_destroy = true;
+                    
+            }
+        
+        }
         
         global.stage_completion[global.world,global.stage[global.world]] = 0;
         global.stage_death[global.world,global.stage[global.world]] = 0;

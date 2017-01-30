@@ -4,7 +4,12 @@
     // Completion
     
     if( global.stage_death[global.world,global.stage[global.world]] > 0 ) { var death = 0; } else { var death = 1; }
-    if( global.stage_fire_count[global.world,global.stage[global.world]] > 0 ) { var fire = global.stage_fire[global.world,global.stage[global.world]] / global.stage_fire_count[global.world,global.stage[global.world]]; } else { var fire = 1; }
+    if( global.stage_fire_count[global.world,global.stage[global.world]] > 0 ) {
+        
+        if( instance_number( object_water ) = 0 && instance_number( object_pollution ) = 0 ) { var fire = 1; }
+        else { var fire = global.stage_fire[global.world,global.stage[global.world]] / global.stage_fire_count[global.world,global.stage[global.world]]; }
+    
+    } else { var fire = 1; }
     
     global.stage_completion[global.world,global.stage[global.world]] = ( 1 / 3 ) + ( death / 3 ) + ( fire / 3 );
     if( ( global.stage_completion_record[global.world,global.stage[global.world]] == -1 ) || global.stage_completion[global.world,global.stage[global.world]] > global.stage_completion_record[global.world,global.stage[global.world]] ) { global.stage_completion_record[global.world,global.stage[global.world]] = global.stage_completion[global.world,global.stage[global.world]]; }     

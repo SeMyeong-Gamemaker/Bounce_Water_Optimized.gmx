@@ -50,6 +50,19 @@
     
     global.stage_room[0,8] = room_0_8;
     global.stage_name[0,8] = "0-8";
+    
+    global.stage_room[0,9] = room_0_9;
+    global.stage_name[0,9] = "0-9";
+    
+    global.stage_room[0,10] = room_0_10;
+    global.stage_name[0,10] = "0-10";
+    
+    global.stage_room[0,11] = room_0_11;
+    global.stage_name[0,11] = "물을 흡수해서 불을 끄세요";
+    
+    global.stage_room[0,12] = room_0_12;
+    global.stage_name[0,12] = "0-12";
+
 </string>
           </argument>
         </arguments>
@@ -92,6 +105,21 @@
           <argument>
             <kind>1</kind>
             <string>/// Stage Setup - World Custom ( 2 )
+
+    global.stage_room[2,1] = room_custom_1;
+    global.stage_name[2,1] = "커스텀 스테이지 1";
+    
+    global.stage_room[2,2] = room_custom_2;
+    global.stage_name[2,2] = "커스텀 스테이지 2";
+    
+    global.stage_room[2,3] = room_custom_3;
+    global.stage_name[2,3] = "커스텀 스테이지 3";
+    
+    global.stage_room[2,4] = room_custom_4;
+    global.stage_name[2,4] = "커스텀 스테이지 4";
+    
+    global.stage_room[2,5] = room_custom_5;
+    global.stage_name[2,5] = "커스텀 스테이지 5";
 </string>
           </argument>
         </arguments>
@@ -194,6 +222,30 @@
             <string>/// room_goto( room_menu );
 
     room_goto( room_menu );
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+    randomize();
 </string>
           </argument>
         </arguments>

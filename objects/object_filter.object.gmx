@@ -28,6 +28,7 @@
             <string>
     filter_health_max = 50;
     filter_health = filter_health_max;
+    filter_used = 0;
 
 </string>
           </argument>

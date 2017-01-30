@@ -26,11 +26,32 @@
           <argument>
             <kind>1</kind>
             <string>/// Ingame block surface
-// using surface to optimize
+
+    // using surface to optimize
 
     shadow_surface = noone;
+    water_surface = noone;
     block_surface = noone;
     
+    broken_shadow_surface = noone;
+    broken_block_surface = noone;
+    
+    jumper_shadow_surface = noone;
+    jumper_block_surface = noone;
+    
+    special_block_surface = noone;
+    
+    // surface update
+    
+    surface_update_water = false;
+    
+    surface_update_filter = false;
+    surface_update_sponge = false;
+    surface_update_purifier = false;
+    
+    surface_update_broken = false;
+    
+    surface_update_jumper = false;
     
     
 </string>
@@ -53,8 +74,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Gui
-
+            <string>/// Instance number
+    
+    number_broken = instance_number( object_broken );
+    number_broken += instance_number( object_broken_bridge );
+    
+    number_jumper = instance_number( object_leaf );
+    
+    number_water = instance_number( object_water );
+    number_pollution = instance_number( object_pollution );
+    
+    number_fire = instance_number( object_fire );
+        
     
 </string>
           </argument>
@@ -128,9 +159,51 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw Surface
+            <string>/// Shadow Surface
+
+    // Broken shadow surface
     
-    if( surface_exists( shadow_surface ) ) { draw_surface( shadow_surface, 0, 0 ); } else { 
+    if( number_broken != 0 ) { 
+        
+        if( surface_exists( broken_shadow_surface ) ) {
+        
+            if( surface_update_broken ) {
+            
+                surface_set_target( broken_shadow_surface );
+                
+                draw_clear_alpha( c_white,0 );
+            
+                with( object_broken ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+                with( object_broken_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+                with( object_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+            
+                surface_reset_target();
+            
+            }
+            draw_set_alpha( 1 );
+            draw_surface( broken_shadow_surface, 0, 0 );
+        
+        } else { 
+        
+            broken_shadow_surface = surface_create( room_width, room_height );
+            
+            surface_set_target( broken_shadow_surface );
+            
+            draw_clear_alpha( c_white,0 );
+            
+            with( object_broken ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+            with( object_broken_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+            with( object_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+            
+            surface_reset_target();
+        
+        }
+    
+    }
+    
+    // Other shadow surface
+
+    if( surface_exists( shadow_surface ) ) { draw_set_alpha( 1 ); draw_surface( shadow_surface, 0, 0 ); } else { 
     
         shadow_surface = surface_create( room_width, room_height );
         
@@ -138,40 +211,209 @@
         
         draw_clear_alpha( c_white,0 );
         
-        with( object_block ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_pipe ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_pipe_in ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_pipe_out ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_filter ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_sponge ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_purifier ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_drain_up ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
-        with( object_drain_down ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.5 ); }
+        with( object_block ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_pipe ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_pipe_in ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_pipe_out ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_filter ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_sponge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_purifier ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_drain_up ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_drain_down ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        
         switch( global.world ) {
         
-            case 0 : 
-            
+            case 0 : case 2 : 
+                    
                 with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
                 with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
                 break;
-            
+                    
         }
         
         surface_reset_target();
     
     }
     
-    with( object_ball ) { draw_sprite_ext( sprite_index, image_index, x, y + 16, 1, 1, 0, c_black, 0.1 ); }
+    draw_set_alpha( 1 );
+    with( object_ball ) { draw_sprite_ext( sprite_index, image_index, x, y + 8, 1, 1, 0, c_black, 0.1 ); }
     
-    with( object_filter ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - filter_health / filter_health_max ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
-    with( object_sponge ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - sponge_health / sponge_health_max ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
-    with( object_purifier ) { draw_sprite( sprite_index, 0, x, y ); draw_set_alpha( 1 - purifier_health / purifier_health_max ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
-    with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y, image_xscale, image_yscale, 0, c_white, 1 ); }
+    // Jumper shadow surface
     
-    with( object_water ) { draw_sprite( sprite_index, 0, x, y + 64 * ( 1 - ( water_amount / water_amount_max ) ) ); }
-    with( object_pollution ) { draw_sprite( sprite_index, 0, x, y + 64 * ( 1 - ( pollution_amount / pollution_amount_max ) ) ); }
+    if( number_jumper != 0 ) { 
+        
+        if( surface_exists( jumper_shadow_surface ) ) {
+        
+            if( surface_update_jumper ) {
+            
+                surface_set_target( jumper_shadow_surface );
+                
+                draw_clear_alpha( c_white,0 );
+            
+                with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y + 8, image_xscale, image_yscale, 0, c_black, 0.75 ); }
+            
+                surface_reset_target();
+            
+            }
+            draw_set_alpha( 1 );
+            draw_surface( jumper_shadow_surface, 0, 0 );
+        
+        } else { 
+        
+            jumper_shadow_surface = surface_create( room_width, room_height );
+            
+            surface_set_target( jumper_shadow_surface );
+            
+            draw_clear_alpha( c_white,0 );
+            
+            with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y + 8, image_xscale, image_yscale, 0, c_black, 0.75 ); }
+            
+            surface_reset_target();
+        
+        }
     
-    if( surface_exists( block_surface ) ) { draw_surface( block_surface, 0, 0 ); } else { 
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Water surface
+    
+    draw_set_colour( c_white );
+    draw_set_alpha( 1 );
+    
+    if( number_water != 0 || number_pollution != 0 ) {
+    
+        if( surface_exists( water_surface ) ) {
+        
+            if( surface_update_water ) {
+            
+                surface_set_target( water_surface );
+            
+                draw_clear_alpha( c_white,0 );
+                
+                with( object_water ) { draw_sprite( sprite_index, 0, x, y + 64 * water_used ); }
+                with( object_pollution ) { draw_sprite( sprite_index, 0, x, y + 64 * pollution_used ); }
+            
+                surface_reset_target();
+                
+                surface_update_water = !surface_update_water;
+            
+            }
+            draw_surface( water_surface, 0, 0 );
+        
+        } else {
+        
+            water_surface = surface_create( room_width, room_height );
+            
+            surface_set_target( water_surface );
+            
+            draw_clear_alpha( c_white,0 );
+            
+            switch( global.world ) {
+        
+                case 0 : case 2 : 
+                    
+                    with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                    with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                    break;
+                    
+            }
+                
+            with( object_water ) { draw_sprite( sprite_index, 0, x, y + 64 * water_used ); }
+            with( object_pollution ) { draw_sprite( sprite_index, 0, x, y + 64 * pollution_used ); }
+            
+            surface_reset_target();
+        
+        }
+    
+    }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Block surface
+    
+    draw_set_colour( c_white );
+    draw_set_alpha( 1 );
+
+    // Broken block surface
+
+    if( number_broken != 0 ) { 
+        
+        if( surface_exists( broken_block_surface ) ) {
+        
+            if( surface_update_broken ) {
+            
+                surface_set_target( broken_block_surface );
+                
+                draw_clear_alpha( c_white,0 );
+            
+                with( object_broken ) { draw_sprite( sprite_index, 0, x, y ); }
+                with( object_broken_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
+                with( object_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
+            
+                surface_reset_target();
+                
+                surface_update_broken = !surface_update_broken;
+            
+            }
+            draw_surface( broken_block_surface, 0, 0 );
+        
+        } else { 
+        
+            broken_block_surface = surface_create( room_width, room_height );
+            
+            surface_set_target( broken_block_surface );
+            
+            draw_clear_alpha( c_white,0 );
+            
+            with( object_broken ) { draw_sprite( sprite_index, 0, x, y ); }
+            with( object_broken_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
+            with( object_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
+            
+            surface_reset_target();
+        
+        }
+    
+    }
+    
+    // Other block surface
+    
+    if( surface_exists( block_surface ) ) { draw_set_alpha( 1 ); draw_surface( block_surface, 0, 0 ); } else { 
     
         block_surface = surface_create( room_width, room_height );
         
@@ -179,19 +421,152 @@
         
         draw_clear_alpha( c_white,0 );
         
-        with( object_block ) { draw_sprite( sprite_index, image_index, x, y ); }
-        with( object_pipe ) { draw_sprite( sprite_index, image_index, x, y ); }
-        with( object_pipe_in ) { draw_sprite( sprite_index, image_index, x, y ); }
-        with( object_pipe_out ) { draw_sprite( sprite_index, image_index, x, y ); }
-        with( object_drain_up ) { draw_sprite( sprite_index, image_index, x, y ); }
-        with( object_drain_down ) { draw_sprite( sprite_index, image_index, x, y ); }
+        with( object_block ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_pipe ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_pipe_in ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_pipe_out ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_filter ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_sponge ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_purifier ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_drain_up ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_drain_down ) { draw_sprite( sprite_index, 0, x, y ); }
         
         surface_reset_target();
     
     }
     
-    with( object_fire ) { draw_sprite_ext( sprite_index, -1, x, y, 0.2 + 0.8 * fire_health / fire_health_max, 0.2 + 0.8 * fire_health / fire_health_max, 0, c_white, 1 ); }
+    // Special block surface
+    
+    if( surface_exists( special_block_surface ) ) {
+    
+        if( surface_update_filter ) {  // Filter Update
+        
+            surface_set_target( special_block_surface );
+            with( object_filter ) {
 
+                draw_set_alpha( filter_used );
+                draw_sprite( sprite_index, 1, x, y );
+                draw_set_alpha( 1 );
+                
+            }
+            surface_reset_target();
+            surface_update_filter = !surface_update_filter;
+        
+        }
+        if( surface_update_sponge ) {  // Sponge Update
+        
+            surface_set_target( special_block_surface );
+            with( object_sponge ) {
+                
+                draw_set_alpha( sponge_used );
+                draw_sprite( sprite_index, 1, x, y );
+                draw_set_alpha( 1 );
+                
+            }
+            surface_reset_target();
+            surface_update_sponge = !surface_update_sponge;
+        
+        }
+        if( surface_update_purifier ) {  // Purifier Update
+        
+            surface_set_target( special_block_surface );
+            with( object_purifier ) {
+
+                draw_set_alpha( purifier_used );
+                draw_sprite( sprite_index, 1, x, y );
+                draw_set_alpha( 1 );
+                
+            }
+            surface_reset_target();
+            surface_update_purifier = !surface_update_purifier;
+        
+        }
+        draw_set_alpha( 1 );
+        draw_surface( special_block_surface, 0, 0 );
+
+    } else { 
+    
+        special_block_surface = surface_create( room_width, room_height );
+        
+        surface_set_target( special_block_surface );
+        
+        draw_clear_alpha( c_white,0 );
+        
+        with( object_filter ) { draw_set_alpha( filter_used ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
+        with( object_sponge ) { draw_set_alpha( sponge_used ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
+        with( object_purifier ) { draw_set_alpha( purifier_used ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
+        
+        surface_reset_target();
+    
+    }
+    
+    // Jumper block surface
+
+    if( number_jumper != 0 ) { 
+        
+        if( surface_exists( jumper_block_surface ) ) {
+        
+            if( surface_update_jumper ) {
+            
+                surface_set_target( jumper_block_surface );
+                
+                draw_clear_alpha( c_white,0 );
+            
+                with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y, image_xscale, image_yscale, 0, c_white, 1 ); }
+            
+                surface_reset_target();
+            
+            }
+            draw_surface( jumper_block_surface, 0, 0 );
+        
+        } else { 
+        
+            jumper_block_surface = surface_create( room_width, room_height );
+            
+            surface_set_target( jumper_block_surface );
+            
+            draw_clear_alpha( c_white,0 );
+            
+            with( object_leaf ) { draw_sprite_ext( sprite_index, 0, x, y, image_xscale, image_yscale, 0, c_white, 1 ); }
+            
+            surface_reset_target();
+        
+        }
+    
+    }
+
+    // Fire
+    
+    if( number_fire != 0 ) { with( object_fire ) { draw_sprite_ext( sprite_index, -1, x, y, fire_scale, fire_scale, 0, c_white, 1 ); } }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Effect
+
+    with( object_effect_broken ) {
+    
+        draw_sprite_ext( sprite_index, image_index, x, y + 8, 1, 1, image_angle, c_black, 0.5 * image_alpha );
+        draw_sprite_ext( sprite_index, image_index, x, y, 1, 1, image_angle, c_white, image_alpha );
+    
+    }
 </string>
           </argument>
         </arguments>

@@ -28,6 +28,7 @@
             <string>
     purifier_health_max = 50;
     purifier_health = purifier_health_max;
+    purifier_used = 0;
 
 </string>
           </argument>

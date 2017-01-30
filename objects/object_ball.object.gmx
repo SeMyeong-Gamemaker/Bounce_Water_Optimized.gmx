@@ -216,6 +216,39 @@
         
         instance_destroy();
         
+    } else if( place_meeting( x, y + 1, object_broken ) ) {  // Broken
+        
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        
+        with( instance_place( x, y + 1, object_broken ) ) {
+        
+            block_action_broken_block( 7, sprite_block_broken );
+            instance_destroy();
+        
+        }
+        with( object_broken_bridge ) { bridge_update = true; }
+        with( object_bridge ) { bridge_update = true; }
+        
+    } else if( place_meeting( x, y + 1, object_broken_bridge ) ) {  // Broken Bridge
+        
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        
+        with( instance_place( x, y + 1, object_broken_bridge ) ) {
+        
+            block_action_broken_block( 4, sprite_block_broken_bridge );
+            instance_destroy();
+        
+        }
+        with( object_broken_bridge ) { bridge_update = true; }
+        with( object_bridge ) { bridge_update = true; }
+        
+    } else if( place_meeting( x, y + 1, object_bridge ) ) {  // Bridge
+        
+        ball_speed_v = 0;
+        ball_action_jump( ball_speed_j, 0.75, 1.25 );
+        
     } else if( place_meeting( x, y + 1, object_leaf ) ) {  // Leaf
         
         ball_speed_v = 0;
@@ -225,6 +258,9 @@
             
         leaf.image_xscale = 2;
         leaf.image_yscale = 0.5;
+        leaf.leaf_on = true;
+        
+        object_ingame_surface.surface_update_jumper = true;
         
     } else {  // Ball is in midair
     
@@ -290,6 +326,8 @@
     ball_action_collision_horizontal( object_purifier, true );
     ball_action_collision_horizontal( object_drain_up, true );
     ball_action_collision_horizontal( object_drain_down, true );
+    ball_action_collision_horizontal( object_broken, true );
+    ball_action_collision_horizontal( object_broken_bridge, true );
     ball_action_collision_horizontal( object_leaf, true );
     
     x += ball_speed_h;
@@ -305,6 +343,8 @@
     ball_action_collision_vertical( object_purifier, true );
     ball_action_collision_vertical( object_drain_up, true );
     ball_action_collision_vertical( object_drain_down, true );
+    ball_action_collision_vertical( object_broken, true );
+    ball_action_collision_vertical( object_broken_bridge, true );
     ball_action_collision_vertical( object_leaf, true );
     
     y += ball_speed_v;
@@ -342,17 +382,17 @@
         
         repeat( 8 ) {
     
-        with( instance_create( x + lengthdir_x( random( 24 ), random_range( 225, 315 ) ), y + lengthdir_y( random( 24 ), random_range( 225, 315 ) ), object_ball_drop ) ) {
-        
-            gravity = 0.25;
-            friction = 0.05;
-            image_alpha = 0.5;
-            pollution = other.ball_pollution / other.ball_water_max;
-            motion_add( random( 360 ), random_range( 3, 5 ) );
+            with( instance_create( x + lengthdir_x( random( 24 ), random_range( 225, 315 ) ), y + lengthdir_y( random( 24 ), random_range( 225, 315 ) ), object_ball_drop ) ) {
+            
+                gravity = 0.25;
+                friction = 0.05;
+                image_alpha = 0.5;
+                pollution = other.ball_pollution / other.ball_water_max;
+                motion_add( random( 360 ), random_range( 3, 5 ) );
+            
+            }
         
         }
-    
-    }
     
     }
 </string>

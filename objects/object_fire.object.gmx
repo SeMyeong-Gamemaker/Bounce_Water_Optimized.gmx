@@ -31,6 +31,31 @@
 
     fire_health = 20;
     fire_health_max = 20;
+    fire_scale = 0.2 + 0.8 * fire_health / fire_health_max;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+    object_ingame_surface.number_fire--;
 </string>
           </argument>
         </arguments>
@@ -53,24 +78,27 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if( other.ball_pollution &gt; 1 ) {
-
-    other.ball_pollution -= 2;
-    fire_health--;
-
-} else if( other.ball_water &gt; 0 ) {
-
-    other.ball_water--;
-    fire_health--;
-
-} else { with( other ) { instance_destroy(); } }
-
-if( fire_health &lt;= 0 ) {
-
-    global.stage_fire[global.world,global.stage[global.world]]++;
-    instance_destroy();
-
-}
+            <string>    
+    if( other.ball_pollution &gt; 1 ) {
+    
+        other.ball_pollution -= 2;
+        fire_health--;
+        fire_scale = 0.2 + 0.8 * fire_health / fire_health_max;
+    
+    } else if( other.ball_water &gt; 0 ) {
+    
+        other.ball_water--;
+        fire_health--;
+        fire_scale = 0.2 + 0.8 * fire_health / fire_health_max;
+    
+    } else { with( other ) { instance_destroy(); } }
+    
+    if( fire_health &lt;= 0 ) {
+    
+        global.stage_fire[global.world,global.stage[global.world]]++;
+        instance_destroy();
+    
+    }
 </string>
           </argument>
         </arguments>

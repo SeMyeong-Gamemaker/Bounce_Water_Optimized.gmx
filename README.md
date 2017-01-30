@@ -1,13 +1,18 @@
 #Bounce_Water_Optimized ( 최적화 버전 )
 
+## 최근 업데이트
+- 맵 에디터 : [비디오](https://github.com/SeMyeong-Gamemaker/Bounce_Water_Optimized.gmx/blob/unstable/files/video_1.mp4?raw=true)
+- ![Alt text](/files/image_1.png)
+- ![Alt text](/files/image_2.png)
+
 ## 최적화 버전
 - 모바일에서 높은 프레임으로 돌아갈수 있도록 제작
 - 저번 프로젝트에 있었던 버그 수정
 
 ## 효과
 1800스텝(30초) 동안 기록한 FPS
-![Alt text](/image/unoptimized2.png)
-![Alt text](/image/optimized2.png)
+![Alt text](/files/unoptimized2.png)
+![Alt text](/files/optimized2.png)
 
 ## 제작
 - 그래픽     : 윤채미 임희진

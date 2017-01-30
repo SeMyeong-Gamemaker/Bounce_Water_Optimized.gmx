@@ -120,6 +120,7 @@
     if( fpson ) {
     
         if( fps_real &gt; fpss ) { fpss = fps_real; }
+        if( fps_real &lt; fpssss ) { fpssss = fps_real; }
         if( fps_real &gt;= 2500 ) { fpss25++; }
         if( fps_real &gt;= 2000 &amp;&amp; fps_real &lt; 2500 ) { fpss20++; }
         if( fps_real &gt;= 1500 &amp;&amp; fps_real &lt; 2000 ) { fpss15++; }
@@ -155,7 +156,6 @@
     draw_set_colour( c_black );
     draw_text( 128, 64, "MAXFPS : " + string( fpss ) );
     draw_text( 128, 128, "MINFPS : " + string( fpssss ) );
-    draw_text( 128, 192, "CURENT : " + string( fps_real ) );
     draw_text( 128, 256, "&gt;=2500 : " + string( fpss25 ) );
     draw_text( 128, 320, "2000 2499 : " + string( fpss20 ) );
     draw_text( 128, 384, "1500 1999 : " + string( fpss15 ) );
