@@ -62,6 +62,7 @@
     
     global.stage_room[0,12] = room_0_12;
     global.stage_name[0,12] = "0-12";
+
 </string>
           </argument>
         </arguments>
@@ -104,6 +105,21 @@
           <argument>
             <kind>1</kind>
             <string>/// Stage Setup - World Custom ( 2 )
+
+    global.stage_room[2,1] = room_custom_1;
+    global.stage_name[2,1] = "커스텀 스테이지 1";
+    
+    global.stage_room[2,2] = room_custom_2;
+    global.stage_name[2,2] = "커스텀 스테이지 2";
+    
+    global.stage_room[2,3] = room_custom_3;
+    global.stage_name[2,3] = "커스텀 스테이지 3";
+    
+    global.stage_room[2,4] = room_custom_4;
+    global.stage_name[2,4] = "커스텀 스테이지 4";
+    
+    global.stage_room[2,5] = room_custom_5;
+    global.stage_name[2,5] = "커스텀 스테이지 5";
 </string>
           </argument>
         </arguments>

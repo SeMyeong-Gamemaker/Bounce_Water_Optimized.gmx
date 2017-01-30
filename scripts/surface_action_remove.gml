@@ -61,5 +61,13 @@
             surface_free( block_surface );
         
         }
+        if( surface_exists( special_block_surface ) ) {
+        
+            surface_set_target( special_block_surface );
+            draw_clear_alpha( c_white,0 );
+            surface_reset_target();
+            surface_free( special_block_surface );
+        
+        }
     
     }

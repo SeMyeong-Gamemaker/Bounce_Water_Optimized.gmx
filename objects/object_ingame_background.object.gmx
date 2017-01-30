@@ -34,7 +34,7 @@
     background_direction = point_direction( room_width / 2, room_height / 2, 0, 0 );
     switch( global.world ) {
     
-        case 0 : 
+        case 0 : case 2 : 
             
             background = background1;
             break;

@@ -39,6 +39,8 @@
     jumper_shadow_surface = noone;
     jumper_block_surface = noone;
     
+    special_block_surface = noone;
+    
     // surface update
     
     surface_update_water = false;
@@ -178,6 +180,7 @@
                 surface_reset_target();
             
             }
+            draw_set_alpha( 1 );
             draw_surface( broken_shadow_surface, 0, 0 );
         
         } else { 
@@ -200,7 +203,7 @@
     
     // Other shadow surface
 
-    if( surface_exists( shadow_surface ) ) { draw_surface( shadow_surface, 0, 0 ); } else { 
+    if( surface_exists( shadow_surface ) ) { draw_set_alpha( 1 ); draw_surface( shadow_surface, 0, 0 ); } else { 
     
         shadow_surface = surface_create( room_width, room_height );
         
@@ -220,7 +223,7 @@
         
         switch( global.world ) {
         
-            case 0 : 
+            case 0 : case 2 : 
                     
                 with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
                 with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
@@ -232,6 +235,7 @@
     
     }
     
+    draw_set_alpha( 1 );
     with( object_ball ) { draw_sprite_ext( sprite_index, image_index, x, y + 8, 1, 1, 0, c_black, 0.1 ); }
     
     // Jumper shadow surface
@@ -251,6 +255,7 @@
                 surface_reset_target();
             
             }
+            draw_set_alpha( 1 );
             draw_surface( jumper_shadow_surface, 0, 0 );
         
         } else { 
@@ -268,7 +273,6 @@
         }
     
     }
-
 </string>
           </argument>
         </arguments>
@@ -290,6 +294,9 @@
           <argument>
             <kind>1</kind>
             <string>/// Water surface
+    
+    draw_set_colour( c_white );
+    draw_set_alpha( 1 );
     
     if( number_water != 0 || number_pollution != 0 ) {
     
@@ -321,7 +328,7 @@
             
             switch( global.world ) {
         
-                case 0 : 
+                case 0 : case 2 : 
                     
                     with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
                     with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
@@ -360,6 +367,9 @@
             <kind>1</kind>
             <string>/// Block surface
     
+    draw_set_colour( c_white );
+    draw_set_alpha( 1 );
+
     // Broken block surface
 
     if( number_broken != 0 ) { 
@@ -403,56 +413,7 @@
     
     // Other block surface
     
-    if( surface_exists( block_surface ) ) {
-    
-        if( surface_update_filter ) {  // Filter Update
-        
-            surface_set_target( block_surface );
-            with( object_filter ) {
-        
-                draw_sprite( sprite_index, 0, x, y );
-                draw_set_alpha( filter_used );
-                draw_sprite( sprite_index, 1, x, y );
-                draw_set_alpha( 1 );
-                
-            }
-            surface_reset_target();
-            surface_update_filter = !surface_update_filter;
-        
-        }
-        if( surface_update_sponge ) {  // Sponge Update
-        
-            surface_set_target( block_surface );
-            with( object_sponge ) {
-        
-                draw_sprite( sprite_index, 0, x, y );
-                draw_set_alpha( sponge_used );
-                draw_sprite( sprite_index, 1, x, y );
-                draw_set_alpha( 1 );
-                
-            }
-            surface_reset_target();
-            surface_update_sponge = !surface_update_sponge;
-        
-        }
-        if( surface_update_purifier ) {  // Purifier Update
-        
-            surface_set_target( block_surface );
-            with( object_purifier ) {
-        
-                draw_sprite( sprite_index, 0, x, y );
-                draw_set_alpha( purifier_used );
-                draw_sprite( sprite_index, 1, x, y );
-                draw_set_alpha( 1 );
-                
-            }
-            surface_reset_target();
-            surface_update_purifier = !surface_update_purifier;
-        
-        }
-        draw_surface( block_surface, 0, 0 );
-
-    } else { 
+    if( surface_exists( block_surface ) ) { draw_set_alpha( 1 ); draw_surface( block_surface, 0, 0 ); } else { 
     
         block_surface = surface_create( room_width, room_height );
         
@@ -469,6 +430,71 @@
         with( object_purifier ) { draw_sprite( sprite_index, 0, x, y ); }
         with( object_drain_up ) { draw_sprite( sprite_index, 0, x, y ); }
         with( object_drain_down ) { draw_sprite( sprite_index, 0, x, y ); }
+        
+        surface_reset_target();
+    
+    }
+    
+    // Special block surface
+    
+    if( surface_exists( special_block_surface ) ) {
+    
+        if( surface_update_filter ) {  // Filter Update
+        
+            surface_set_target( special_block_surface );
+            with( object_filter ) {
+
+                draw_set_alpha( filter_used );
+                draw_sprite( sprite_index, 1, x, y );
+                draw_set_alpha( 1 );
+                
+            }
+            surface_reset_target();
+            surface_update_filter = !surface_update_filter;
+        
+        }
+        if( surface_update_sponge ) {  // Sponge Update
+        
+            surface_set_target( special_block_surface );
+            with( object_sponge ) {
+                
+                draw_set_alpha( sponge_used );
+                draw_sprite( sprite_index, 1, x, y );
+                draw_set_alpha( 1 );
+                
+            }
+            surface_reset_target();
+            surface_update_sponge = !surface_update_sponge;
+        
+        }
+        if( surface_update_purifier ) {  // Purifier Update
+        
+            surface_set_target( special_block_surface );
+            with( object_purifier ) {
+
+                draw_set_alpha( purifier_used );
+                draw_sprite( sprite_index, 1, x, y );
+                draw_set_alpha( 1 );
+                
+            }
+            surface_reset_target();
+            surface_update_purifier = !surface_update_purifier;
+        
+        }
+        draw_set_alpha( 1 );
+        draw_surface( special_block_surface, 0, 0 );
+
+    } else { 
+    
+        special_block_surface = surface_create( room_width, room_height );
+        
+        surface_set_target( special_block_surface );
+        
+        draw_clear_alpha( c_white,0 );
+        
+        with( object_filter ) { draw_set_alpha( filter_used ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
+        with( object_sponge ) { draw_set_alpha( sponge_used ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
+        with( object_purifier ) { draw_set_alpha( purifier_used ); draw_sprite( sprite_index, 1, x, y ); draw_set_alpha( 1 ); }
         
         surface_reset_target();
     

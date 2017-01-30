@@ -39,6 +39,31 @@
             button_destroy = false;
         
         }
+        if( global.world == 2 ) {
+        
+            with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 6, object_button_custom_small ) ) {
+            
+                button_move = true;
+                button_point = x - room_width;
+                button_destroy = false;
+            
+            }
+            with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 7, object_button_custom_medium ) ) {
+            
+                button_move = true;
+                button_point = x - room_width;
+                button_destroy = false;
+            
+            }
+            with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 8, object_button_custom_large ) ) {
+            
+                button_move = true;
+                button_point = x - room_width;
+                button_destroy = false;
+            
+            }
+            
+        }
     
     }</code>
   <enableViews>0</enableViews>

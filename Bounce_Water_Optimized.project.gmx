@@ -28,6 +28,13 @@
         <sprite>sprites\sprite_record_death_mini</sprite>
         <sprite>sprites\sprite_record_fire_mini</sprite>
       </sprites>
+      <sprites name="Custom">
+        <sprite>sprites\sprite_custom_prev</sprite>
+        <sprite>sprites\sprite_custom_next</sprite>
+        <sprite>sprites\sprite_custom_save</sprite>
+        <sprite>sprites\sprite_custom_delete</sprite>
+        <sprite>sprites\sprite_custom_camera</sprite>
+      </sprites>
     </sprites>
     <sprites name="Block">
       <sprite>sprites\sprite_block_white</sprite>
@@ -67,6 +74,8 @@
     <script>scripts\block_action_filter.gml</script>
     <script>scripts\block_action_sponge.gml</script>
     <script>scripts\block_action_purifier.gml</script>
+    <script>scripts\custom_action_draw.gml</script>
+    <script>scripts\custom_action_place.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_18</font>
@@ -103,6 +112,9 @@
         <object>objects\object_button_next</object>
         <object>objects\object_button_stage</object>
         <object>objects\object_button_nextstage</object>
+        <object>objects\object_button_custom_small</object>
+        <object>objects\object_button_custom_medium</object>
+        <object>objects\object_button_custom_large</object>
       </objects>
       <objects name="Setup">
         <object>objects\object_setup</object>
@@ -120,6 +132,23 @@
         <object>objects\object_record_fire</object>
         <object>objects\object_record_time</object>
         <object>objects\object_record_completion</object>
+      </objects>
+      <objects name="Custom">
+        <object>objects\object_custom_setting</object>
+        <object>objects\object_custom_menu</object>
+        <object>objects\object_custom_prev</object>
+        <object>objects\object_custom_next</object>
+        <object>objects\object_custom_block_1</object>
+        <object>objects\object_custom_block_2</object>
+        <object>objects\object_custom_block_3</object>
+        <object>objects\object_custom_block_4</object>
+        <object>objects\object_custom_block_5</object>
+        <object>objects\object_custom_delete</object>
+        <object>objects\object_custom_camera</object>
+        <object>objects\object_custom_save</object>
+        <object>objects\object_custom_save_prev</object>
+        <object>objects\object_custom_save_next</object>
+        <object>objects\object_custom_initialize</object>
       </objects>
     </objects>
     <objects name="Effect">
@@ -146,6 +175,16 @@
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>
+    </rooms>
+    <rooms name="Custom">
+      <room>rooms\room_custom_1</room>
+      <room>rooms\room_custom_2</room>
+      <room>rooms\room_custom_3</room>
+      <room>rooms\room_custom_4</room>
+      <room>rooms\room_custom_5</room>
+      <room>rooms\room_custom_small</room>
+      <room>rooms\room_custom_medium</room>
+      <room>rooms\room_custom_large</room>
     </rooms>
   </rooms>
   <help>
