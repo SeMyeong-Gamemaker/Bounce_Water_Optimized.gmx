@@ -220,6 +220,14 @@
     global.stage_room[2,5] = room_2_5;
     global.stage_name[2,5] = "2-5";
     
+    global.stage_room[2,6] = room_2_6;
+    global.stage_name[2,6] = "꺠진 블럭을 밟으면 부서집니다";
+    
+    global.stage_room[2,7] = room_2_7;
+    global.stage_name[2,7] = "2-7";
+    
+    global.stage_room[2,8] = room_2_8;
+    global.stage_name[2,8] = "2-8";
 
 </string>
           </argument>

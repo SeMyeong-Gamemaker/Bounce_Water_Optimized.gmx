@@ -222,6 +222,9 @@
       <room>rooms\room_2_3</room>
       <room>rooms\room_2_4</room>
       <room>rooms\room_2_5</room>
+      <room>rooms\room_2_6</room>
+      <room>rooms\room_2_7</room>
+      <room>rooms\room_2_8</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>
