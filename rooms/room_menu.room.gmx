@@ -39,7 +39,7 @@
             button_destroy = false;
         
         }
-        if( global.world == 2 ) {
+        if( global.world == 3 ) {
         
             with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 6, object_button_custom_small ) ) {
             

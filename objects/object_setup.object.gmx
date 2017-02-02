@@ -92,19 +92,19 @@
     
     global.stage_room[0,22] = room_0_22;
     global.stage_name[0,22] = "0-22";
-    /*
+    
     global.stage_room[0,23] = room_0_23;
-    global.stage_name[0,23] = "0-23";
+    global.stage_name[0,23] = "흡수한 물도 오염이 됩니다";
     
     global.stage_room[0,24] = room_0_24;
     global.stage_name[0,24] = "0-24";
     
     global.stage_room[0,25] = room_0_25;
     global.stage_name[0,25] = "0-25";
-    
+
     global.stage_room[0,26] = room_0_26;
     global.stage_name[0,26] = "0-26";
-    
+    /*
     global.stage_room[0,27] = room_0_27;
     global.stage_name[0,27] = "0-27";
     
@@ -138,6 +138,51 @@
           <argument>
             <kind>1</kind>
             <string>/// Stage Setup - World 1 ( 1 )
+
+    global.stage_room[1,1] = room_1_1;
+    global.stage_name[1,1] = "필터는 오염된 물을 흡수합니다";
+    
+    global.stage_room[1,2] = room_1_2;
+    global.stage_name[1,2] = "1-2";
+    
+    global.stage_room[1,3] = room_1_3;
+    global.stage_name[1,3] = "1-3";
+    
+    global.stage_room[1,4] = room_1_4;
+    global.stage_name[1,4] = "1-4";
+    
+    global.stage_room[1,5] = room_1_5;
+    global.stage_name[1,5] = "1-5";
+    
+    global.stage_room[1,6] = room_1_6;
+    global.stage_name[1,6] = "1-6";
+    
+    global.stage_room[1,7] = room_1_7;
+    global.stage_name[1,7] = "1-7";
+    
+    global.stage_room[1,8] = room_1_8;
+    global.stage_name[1,8] = "1-8";
+    
+    global.stage_room[1,9] = room_1_9;
+    global.stage_name[1,9] = "1-9";
+    
+    global.stage_room[1,10] = room_1_10;
+    global.stage_name[1,10] = "1-10";
+    
+    global.stage_room[1,11] = room_1_11;
+    global.stage_name[1,11] = "하수구를 밟으면 다시 시작합니다";
+    
+    global.stage_room[1,12] = room_1_12;
+    global.stage_name[1,12] = "1-12";
+    
+    global.stage_room[1,13] = room_1_13;
+    global.stage_name[1,13] = "1-13";
+    
+    global.stage_room[1,14] = room_1_14;
+    global.stage_name[1,14] = "1-14";
+    
+    global.stage_room[1,15] = room_1_15;
+    global.stage_name[1,15] = "1-15";
 </string>
           </argument>
         </arguments>
@@ -158,22 +203,60 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Stage Setup - World Custom ( 2 )
+            <string>/// Stage Setup - World 2 ( 2 )
 
-    global.stage_room[2,1] = room_custom_1;
-    global.stage_name[2,1] = "커스텀 스테이지 1";
+    global.stage_room[2,1] = room_2_1;
+    global.stage_name[2,1] = "새싹을 밟으면 더 높게 뜁니다";
     
-    global.stage_room[2,2] = room_custom_2;
-    global.stage_name[2,2] = "커스텀 스테이지 2";
+    global.stage_room[2,2] = room_2_2;
+    global.stage_name[2,2] = "2-2";
     
-    global.stage_room[2,3] = room_custom_3;
-    global.stage_name[2,3] = "커스텀 스테이지 3";
+    global.stage_room[2,3] = room_2_3;
+    global.stage_name[2,3] = "2-3";
     
-    global.stage_room[2,4] = room_custom_4;
-    global.stage_name[2,4] = "커스텀 스테이지 4";
+    global.stage_room[2,4] = room_2_4;
+    global.stage_name[2,4] = "2-4";
     
-    global.stage_room[2,5] = room_custom_5;
-    global.stage_name[2,5] = "커스텀 스테이지 5";
+    global.stage_room[2,5] = room_2_5;
+    global.stage_name[2,5] = "2-5";
+    
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Stage Setup - World Custom ( 4 )
+
+    global.stage_room[4,1] = room_custom_1;
+    global.stage_name[4,1] = "커스텀 스테이지 1";
+    
+    global.stage_room[4,2] = room_custom_2;
+    global.stage_name[4,2] = "커스텀 스테이지 2";
+    
+    global.stage_room[4,3] = room_custom_3;
+    global.stage_name[4,3] = "커스텀 스테이지 3";
+    
+    global.stage_room[4,4] = room_custom_4;
+    global.stage_name[4,4] = "커스텀 스테이지 4";
+    
+    global.stage_room[4,5] = room_custom_5;
+    global.stage_name[4,5] = "커스텀 스테이지 5";
 </string>
           </argument>
         </arguments>

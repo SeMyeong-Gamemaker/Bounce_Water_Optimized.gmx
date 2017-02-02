@@ -63,6 +63,8 @@
     <background>background\background0</background>
     <background>background\background1</background>
     <background>background\background2</background>
+    <background>background\background3</background>
+    <background>background\background4</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -189,6 +191,34 @@
       <room>rooms\room_0_20</room>
       <room>rooms\room_0_21</room>
       <room>rooms\room_0_22</room>
+      <room>rooms\room_0_23</room>
+      <room>rooms\room_0_24</room>
+      <room>rooms\room_0_25</room>
+      <room>rooms\room_0_26</room>
+    </rooms>
+    <rooms name="World 1">
+      <room>rooms\room_1_1</room>
+      <room>rooms\room_1_2</room>
+      <room>rooms\room_1_3</room>
+      <room>rooms\room_1_4</room>
+      <room>rooms\room_1_5</room>
+      <room>rooms\room_1_6</room>
+      <room>rooms\room_1_7</room>
+      <room>rooms\room_1_8</room>
+      <room>rooms\room_1_9</room>
+      <room>rooms\room_1_10</room>
+      <room>rooms\room_1_11</room>
+      <room>rooms\room_1_12</room>
+      <room>rooms\room_1_13</room>
+      <room>rooms\room_1_14</room>
+      <room>rooms\room_1_15</room>
+    </rooms>
+    <rooms name="World 2">
+      <room>rooms\room_2_1</room>
+      <room>rooms\room_2_2</room>
+      <room>rooms\room_2_3</room>
+      <room>rooms\room_2_4</room>
+      <room>rooms\room_2_5</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>

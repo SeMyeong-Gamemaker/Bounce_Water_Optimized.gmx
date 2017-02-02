@@ -130,7 +130,7 @@
                 button_destroy = true;
             
             }
-            if( global.world == 2 ) {
+            if( global.world == 4 ) {
             
                 with( object_button_custom_small ) {
                 

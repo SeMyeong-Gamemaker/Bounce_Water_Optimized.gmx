@@ -19,7 +19,7 @@
         case 13 : draw_sprite( sprite_block_broken, 0, 64 * argument1 + 32, 64 * argument2 + 32 ); break;
         case 14 : draw_sprite( sprite_block_broken_bridge, 0, 64 * argument1 + 32, 64 * argument2 + 32 ); break;
         case 15 : draw_sprite( sprite_block_bridge, 0, 64 * argument1 + 32, 64 * argument2 + 32 ); break;
-        case 16 : draw_sprite( sprite_block_leaf, 0, 64 * argument1 + 32, 64 * argument2 + 32 ); break;
+        case 16 : draw_sprite( sprite_block_leaf, 0, 64 * argument1 + 32, 64 * argument2 + 64 ); break;
         
     }
     

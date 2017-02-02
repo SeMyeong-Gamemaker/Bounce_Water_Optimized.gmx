@@ -224,16 +224,6 @@
         with( object_drain_up ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
         with( object_drain_down ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
         
-        switch( global.world ) {
-        
-            case 0 : case 2 : 
-                    
-                with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
-                with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
-                break;
-                    
-        }
-        
         surface_reset_target();
     
     }
@@ -331,10 +321,32 @@
             
             switch( global.world ) {
         
-                case 0 : case 2 : 
+                case 0 : case 4 : 
                     
                     with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
                     with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                    break;
+                    
+                case 1 :
+                
+                    if( global.stage[global.world] &lt; 16 ) { 
+                    
+                        with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                        with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                    
+                    }
+                    else { 
+                    
+                        with( object_water ) { draw_sprite_ext( sprite_block_grass_up, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                        with( object_pollution ) { draw_sprite_ext( sprite_block_grass_up, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                    
+                    }
+                    break;
+                    
+                case 2 : case 3 :
+                
+                    with( object_water ) { draw_sprite_ext( sprite_block_grass_up, 1, x, y, 1, 1, 0, c_silver, 1 ); }
+                    with( object_pollution ) { draw_sprite_ext( sprite_block_grass_up, 1, x, y, 1, 1, 0, c_silver, 1 ); }
                     break;
                     
             }
@@ -427,15 +439,15 @@
         with( object_block ) { draw_sprite( sprite_index, 0, x, y ); }
         with( object_grass_up ) { switch( global.world ) {
             
-            case 1 : draw_sprite( sprite_index, 0, x, y ); break;
-            case 2 : case 3 : draw_sprite( sprite_index, 0, x, y ); break;
+            case 0 : case 1 : case 4 : draw_sprite( sprite_index, 0, x, y ); break;
+            case 2 : case 3 : draw_sprite( sprite_index, 1, x, y ); break;
         
         } }
         with( object_grass_mid ) { draw_sprite( sprite_index, 0, x, y ); }
         with( object_grass_down ) { switch( global.world ) {
             
-            case 1 : draw_sprite( sprite_index, 0, x, y ); break;
-            case 2 : case 3 : draw_sprite( sprite_index, 0, x, y ); break;
+            case 0 : case 1 : case 4 : draw_sprite( sprite_index, 0, x, y ); break;
+            case 2 : case 3 : draw_sprite( sprite_index, 1, x, y ); break;
         
         } }
         with( object_pipe ) { draw_sprite( sprite_index, 0, x, y ); }

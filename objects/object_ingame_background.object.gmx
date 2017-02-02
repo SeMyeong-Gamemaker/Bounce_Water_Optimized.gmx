@@ -34,14 +34,25 @@
     background_direction = point_direction( room_width / 2, room_height / 2, 0, 0 );
     switch( global.world ) {
     
-        case 0 : case 2 : 
+        case 0 : case 4 : 
             
             background = background1;
             break;
             
         case 1 :
         
-            background = background2;
+            if( global.stage[global.world] &lt; 16 ) { background = background1; }
+            else { background = background2; }
+            break;
+            
+        case 2 :
+        
+            background = background3;
+            break;
+            
+        case 3 :
+        
+            background = background4;
             break;
     
     }
@@ -69,7 +80,7 @@
             <kind>1</kind>
             <string>/// Draw Background
 
-    draw_background_ext( background, room_width / 2 + lengthdir_x( background_distance, background_direction -view_angle ) , room_height / 2 + lengthdir_y( background_distance, background_direction -view_angle ), background_scale_x, background_scale_y, -view_angle, c_white, 1 );
+    draw_background_ext( background, view_xview + ( view_wview / 2 ) + lengthdir_x( background_distance, background_direction -view_angle ) , view_yview + ( view_hview / 2 ) + lengthdir_y( background_distance, background_direction -view_angle ), background_scale_x, background_scale_y, -view_angle, c_white, 1 );
 </string>
           </argument>
         </arguments>

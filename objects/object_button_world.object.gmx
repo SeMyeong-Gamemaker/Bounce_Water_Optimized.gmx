@@ -100,7 +100,7 @@
         
         }
         
-        if( world == 2 ) {
+        if( world == 4 ) {
         
             with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 6, object_button_custom_small ) ) {
             
@@ -157,7 +157,7 @@
     draw_set_valign( fa_middle );
     
     draw_set_colour( c_black );
-    if( world != 2 ) { draw_text( x, y, "World " + string( world ) ); }
+    if( world != 4 ) { draw_text( x, y, "World " + string( world ) ); }
     else { draw_text( x, y, "Custom" ); }
 </string>
           </argument>
