@@ -212,6 +212,9 @@
         draw_clear_alpha( c_white,0 );
         
         with( object_block ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_grass_up ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_grass_mid ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
+        with( object_grass_down ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
         with( object_pipe ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
         with( object_pipe_in ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
         with( object_pipe_out ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
@@ -422,6 +425,19 @@
         draw_clear_alpha( c_white,0 );
         
         with( object_block ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_grass_up ) { switch( global.world ) {
+            
+            case 1 : draw_sprite( sprite_index, 0, x, y ); break;
+            case 2 : case 3 : draw_sprite( sprite_index, 0, x, y ); break;
+        
+        } }
+        with( object_grass_mid ) { draw_sprite( sprite_index, 0, x, y ); }
+        with( object_grass_down ) { switch( global.world ) {
+            
+            case 1 : draw_sprite( sprite_index, 0, x, y ); break;
+            case 2 : case 3 : draw_sprite( sprite_index, 0, x, y ); break;
+        
+        } }
         with( object_pipe ) { draw_sprite( sprite_index, 0, x, y ); }
         with( object_pipe_in ) { draw_sprite( sprite_index, 0, x, y ); }
         with( object_pipe_out ) { draw_sprite( sprite_index, 0, x, y ); }

@@ -19,7 +19,7 @@
             if( !button_unlock ) { sprite_index = sprite_button_locked; }
             
             if( global.stage_death_record[global.world,stage] == 0 ) { death = true; } else { death = false; }
-            if( global.stage_fire_record[global.world,stage] == global.stage_fire_count[global.world,stage] ) { fire = true; } else { fire = false; }
+            if( global.stage_fire_record[global.world,stage] == global.stage_fire_count[global.world,stage] || global.stage_completion_record[global.world,stage] == 1 ) { fire = true; } else { fire = false; }
             if( global.stage_completion_record[global.world,stage] > 0 ) { completion = global.stage_completion_record[global.world,stage]; } else { completion = 0; }
             
             if( other.button_direction == 1 ) {

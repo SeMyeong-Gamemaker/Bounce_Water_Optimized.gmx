@@ -18,7 +18,7 @@
         <sprite>sprites\sprite_button_locked</sprite>
       </sprites>
       <sprites name="World">
-        <sprite>sprites\sprite8</sprite>
+        <sprite>sprites\sprite_world</sprite>
       </sprites>
       <sprites name="record">
         <sprite>sprites\sprite_record_death</sprite>
@@ -38,6 +38,9 @@
     </sprites>
     <sprites name="Block">
       <sprite>sprites\sprite_block_white</sprite>
+      <sprite>sprites\sprite_block_grass_up</sprite>
+      <sprite>sprites\sprite_block_grass_mid</sprite>
+      <sprite>sprites\sprite_block_grass_down</sprite>
       <sprite>sprites\sprite_block_pipe</sprite>
       <sprite>sprites\sprite_block_pipe_in</sprite>
       <sprite>sprites\sprite_block_pipe_out</sprite>
@@ -59,6 +62,7 @@
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
+    <background>background\background2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -87,6 +91,9 @@
     </objects>
     <objects name="Block">
       <object>objects\object_block</object>
+      <object>objects\object_grass_up</object>
+      <object>objects\object_grass_mid</object>
+      <object>objects\object_grass_down</object>
       <object>objects\object_pipe</object>
       <object>objects\object_pipe_in</object>
       <object>objects\object_pipe_out</object>
@@ -172,6 +179,16 @@
       <room>rooms\room_0_10</room>
       <room>rooms\room_0_11</room>
       <room>rooms\room_0_12</room>
+      <room>rooms\room_0_13</room>
+      <room>rooms\room_0_14</room>
+      <room>rooms\room_0_15</room>
+      <room>rooms\room_0_16</room>
+      <room>rooms\room_0_17</room>
+      <room>rooms\room_0_18</room>
+      <room>rooms\room_0_19</room>
+      <room>rooms\room_0_20</room>
+      <room>rooms\room_0_21</room>
+      <room>rooms\room_0_22</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>

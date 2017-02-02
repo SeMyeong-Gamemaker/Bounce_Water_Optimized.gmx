@@ -62,7 +62,61 @@
     
     global.stage_room[0,12] = room_0_12;
     global.stage_name[0,12] = "0-12";
-
+    
+    global.stage_room[0,13] = room_0_13;
+    global.stage_name[0,13] = "0-13";
+    
+    global.stage_room[0,14] = room_0_14;
+    global.stage_name[0,14] = "0-14";
+    
+    global.stage_room[0,15] = room_0_15;
+    global.stage_name[0,15] = "0-15";
+    
+    global.stage_room[0,16] = room_0_16;
+    global.stage_name[0,16] = "스폰지는 물을 흡수합니다";
+    
+    global.stage_room[0,17] = room_0_17;
+    global.stage_name[0,17] = "0-17";
+    
+    global.stage_room[0,18] = room_0_18;
+    global.stage_name[0,18] = "0-18";
+    
+    global.stage_room[0,19] = room_0_19;
+    global.stage_name[0,19] = "0-19";
+    
+    global.stage_room[0,20] = room_0_20;
+    global.stage_name[0,20] = "0-20";
+    
+    global.stage_room[0,21] = room_0_21;
+    global.stage_name[0,21] = "오염된 물을 많이 흡수하지 마세요";
+    
+    global.stage_room[0,22] = room_0_22;
+    global.stage_name[0,22] = "0-22";
+    /*
+    global.stage_room[0,23] = room_0_23;
+    global.stage_name[0,23] = "0-23";
+    
+    global.stage_room[0,24] = room_0_24;
+    global.stage_name[0,24] = "0-24";
+    
+    global.stage_room[0,25] = room_0_25;
+    global.stage_name[0,25] = "0-25";
+    
+    global.stage_room[0,26] = room_0_26;
+    global.stage_name[0,26] = "0-26";
+    
+    global.stage_room[0,27] = room_0_27;
+    global.stage_name[0,27] = "0-27";
+    
+    global.stage_room[0,28] = room_0_28;
+    global.stage_name[0,28] = "0-28";
+    
+    global.stage_room[0,29] = room_0_29;
+    global.stage_name[0,29] = "0-29";
+    
+    global.stage_room[0,30] = room_0_30;
+    global.stage_name[0,30] = "0-30";
+*/
 </string>
           </argument>
         </arguments>

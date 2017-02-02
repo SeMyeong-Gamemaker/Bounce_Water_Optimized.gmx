@@ -38,6 +38,11 @@
             
             background = background1;
             break;
+            
+        case 1 :
+        
+            background = background2;
+            break;
     
     }
 </string>

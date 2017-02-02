@@ -25,14 +25,14 @@
             button_destroy = false;
         
         }
-        with( instance_create( room_width + 128, y, object_button_prev ) ) {
+        with( instance_create( room_width + 128, room_height / 2, object_button_prev ) ) {
         
             button_move = true;
             button_point = x - room_width;
             button_destroy = false;
         
         }
-        with( instance_create( room_width * 2 - 128, y, object_button_next ) ) {
+        with( instance_create( room_width * 2 - 128, room_height / 2, object_button_next ) ) {
         
             button_move = true;
             button_point = x - room_width;
