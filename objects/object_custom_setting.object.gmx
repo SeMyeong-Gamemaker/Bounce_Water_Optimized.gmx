@@ -29,7 +29,7 @@
     // Size
     
     custom_size = 0;
-    var size_name = room_get_name( room );
+    var size_name = room;
     if( size_name == room_custom_small ) { custom_size = 1; }
     if( size_name == room_custom_medium ) { custom_size = 2; }
     if( size_name == room_custom_large ) { custom_size = 3; }

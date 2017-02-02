@@ -122,6 +122,13 @@
             
             }
             
+            with( object_world ) {
+            
+                button_move = true;
+                button_point = x - room_width;
+                button_destroy = true;
+            
+            }
             with( object_button_back ) {
             
                 button_move = true;

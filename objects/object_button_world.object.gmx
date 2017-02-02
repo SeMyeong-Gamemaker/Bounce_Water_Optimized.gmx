@@ -78,6 +78,14 @@
         
         button_action_create_stage( 1 );
         
+        with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 1, object_world ) ) {
+        
+            button_move = true;
+            button_point = x - room_width;
+            button_destroy = false;
+        
+        }
+        
         with( instance_create( ( room_width / 2 ) + room_width, room_height / 10 * 9, object_button_back ) ) {
         
             button_move = true;

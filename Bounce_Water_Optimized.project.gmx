@@ -159,6 +159,9 @@
         <object>objects\object_custom_save_next</object>
         <object>objects\object_custom_initialize</object>
       </objects>
+      <objects name="World">
+        <object>objects\object_world</object>
+      </objects>
     </objects>
     <objects name="Effect">
       <object>objects\object_effect_broken</object>
