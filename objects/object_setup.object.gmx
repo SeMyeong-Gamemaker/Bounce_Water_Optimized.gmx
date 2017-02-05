@@ -228,6 +228,83 @@
     
     global.stage_room[2,8] = room_2_8;
     global.stage_name[2,8] = "2-8";
+    
+    global.stage_room[2,9] = room_2_9;
+    global.stage_name[2,9] = "2-9";
+    
+    global.stage_room[2,10] = room_2_10;
+    global.stage_name[2,10] = "2-10";
+    
+    global.stage_room[2,11] = room_2_11;
+    global.stage_name[2,11] = "2-11";
+    
+    global.stage_room[2,12] = room_2_12;
+    global.stage_name[2,12] = "2-12";
+    
+    global.stage_room[2,13] = room_2_13;
+    global.stage_name[2,13] = "2-13";
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Stage Setup - World 3 ( 3 )
+
+    global.stage_room[3,1] = room_3_1;
+    global.stage_name[3,1] = "3-1";
+    /*
+    global.stage_room[3,2] = room_3_2;
+    global.stage_name[3,2] = "3-2";
+    
+    global.stage_room[3,3] = room_3_3;
+    global.stage_name[3,3] = "3-3";
+    
+    global.stage_room[3,4] = room_3_4;
+    global.stage_name[3,4] = "3-4";
+    
+    global.stage_room[3,5] = room_3_5;
+    global.stage_name[3,5] = "3-5";
+    
+    global.stage_room[3,6] = room_3_6;
+    global.stage_name[3,6] = "3-6";
+    
+    global.stage_room[3,7] = room_3_7;
+    global.stage_name[3,7] = "3-7";
+    
+    global.stage_room[3,8] = room_3_8;
+    global.stage_name[3,8] = "3-8";
+    
+    global.stage_room[3,9] = room_3_9;
+    global.stage_name[3,9] = "3-9";
+    
+    global.stage_room[3,10] = room_3_10;
+    global.stage_name[3,10] = "3-10";
+    
+    global.stage_room[3,11] = room_3_11;
+    global.stage_name[3,11] = "3-11";
+    
+    global.stage_room[3,12] = room_3_12;
+    global.stage_name[3,12] = "3-12";
+    
+    global.stage_room[3,13] = room_3_13;
+    global.stage_name[3,13] = "3-13";
+    */
 
 </string>
           </argument>

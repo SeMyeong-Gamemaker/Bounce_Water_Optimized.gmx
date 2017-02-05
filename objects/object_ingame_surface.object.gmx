@@ -78,6 +78,7 @@
     
     number_broken = instance_number( object_broken );
     number_broken += instance_number( object_broken_bridge );
+    number_broken += instance_number( object_bridge );
     
     number_jumper = instance_number( object_leaf );
     
@@ -196,6 +197,8 @@
             with( object_bridge ) { draw_sprite_ext( sprite_index, 0, x, y + 8, 1, 1, 0, c_black, 0.75 ); }
             
             surface_reset_target();
+            
+            draw_surface( broken_shadow_surface, 0, 0 );
         
         }
     
@@ -301,6 +304,38 @@
             
                 draw_clear_alpha( c_white,0 );
                 
+                switch( global.world ) {
+            
+                    case 0 : case 4 : 
+                        
+                        with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                        with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                        break;
+                        
+                    case 1 :
+                    
+                        if( global.stage[global.world] &lt; 16 ) { 
+                        
+                            with( object_water ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                            with( object_pollution ) { draw_sprite_ext( sprite_block_white, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                        
+                        }
+                        else { 
+                        
+                            with( object_water ) { draw_sprite_ext( sprite_block_grass_up, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                            with( object_pollution ) { draw_sprite_ext( sprite_block_grass_up, 0, x, y, 1, 1, 0, c_silver, 1 ); }
+                        
+                        }
+                        break;
+                        
+                    case 2 : case 3 :
+                    
+                        with( object_water ) { draw_sprite_ext( sprite_block_grass_up, 1, x, y, 1, 1, 0, c_silver, 1 ); }
+                        with( object_pollution ) { draw_sprite_ext( sprite_block_grass_up, 1, x, y, 1, 1, 0, c_silver, 1 ); }
+                        break;
+                        
+                }
+                    
                 with( object_water ) { draw_sprite( sprite_index, 0, x, y + 64 * water_used ); }
                 with( object_pollution ) { draw_sprite( sprite_index, 0, x, y + 64 * pollution_used ); }
             
@@ -406,6 +441,7 @@
                 surface_update_broken = !surface_update_broken;
             
             }
+            draw_set_alpha(1);
             draw_surface( broken_block_surface, 0, 0 );
         
         } else { 
@@ -421,6 +457,8 @@
             with( object_bridge ) { draw_sprite( sprite_index, 0, x, y ); }
             
             surface_reset_target();
+            
+            draw_surface( broken_block_surface, 0, 0 );
         
         }
     
