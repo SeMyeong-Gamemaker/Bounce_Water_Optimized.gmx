@@ -332,6 +332,9 @@
     
     x += ball_speed_h;
     
+    if( x - ( sprite_width / 2 ) &lt; 0 ) { x = sprite_width / 2; }
+    if( x + ( sprite_width / 2 ) &gt; room_width ) { x = room_width - ( sprite_width / 2 ); }
+    
     // Vertical Collision
 
     ball_action_collision_vertical( object_block, true );

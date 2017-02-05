@@ -233,6 +233,8 @@
     </rooms>
     <rooms name="World3">
       <room>rooms\room_3_1</room>
+      <room>rooms\room_3_2</room>
+      <room>rooms\room_3_3</room>
     </rooms>
     <rooms name="Test">
       <room>rooms\room_test</room>
